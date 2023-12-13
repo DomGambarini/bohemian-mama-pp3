@@ -44,7 +44,7 @@ Implement feedback mechanisms, such as confirmation messages and notifications, 
 - I want to learn more about the blog owner and her approach to cooking with seasonal produce.
 
 ### As a Regular User
--I want to create a user profile to save my favourite recipes and personalize my experience.
+- I want to create a user profile to save my favourite recipes and personalize my experience.
 
 ### As a Novice Cook 
 - I want clear, step-by-step instructions with images to help me follow the recipes easily. 
