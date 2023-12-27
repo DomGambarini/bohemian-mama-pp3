@@ -13,16 +13,33 @@
     {% endblock %}    
     <title>Bohemian Mama</title>
 </head>
-<body>
 
-    <nav>
-        <ul>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="nav-extended text-shadow light-green lighten-3">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('index') }}" class="brand-logo">Bohemian Mama</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('seasonalrecipes') }}">Seasonal Recipes </a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- Mobile Side Bar -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align">Bohemian Mama</h4></li>
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('seasonalrecipes') }}">Seasonal Recipes </a></li>
             <li><a href="{{ url_for('login') }}">Login</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
-    </nav>
+
+    </header>
 
     {% block content %}
     {% endblock %}
