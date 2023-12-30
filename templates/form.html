@@ -1,23 +1,16 @@
+{% from "_render_field.html" import render_field %}
 {% extends "base.html" %}
 {% block content %}
+
     <h1>Form Page</h1>
 
     <form method="POST" action="{{ url_for('form') }}">
         {{ form.csrf_token }}
-        {{ form.username.label }}
-        {{ form.username }}
-        <ul>
-        {% for error in form.username.errors %}
-            <li style="color:red;">{{ error }}</li>
-        {% endfor %}
-        </ul>
-        {{ form.password.label }}
-        {{ form.password }}
-        <ul>
-            {% for error in form.password.errors %}
-            <li style="color:red;">{{ error }}</li>
-            {% endfor %}
-        </ul>
+        
+        {{ render_field(form.username )}}
+
+        {{ render_field(form.password )}}
+        
         <input type="submit" value="Submit">
     </form>
 {% endblock %}
