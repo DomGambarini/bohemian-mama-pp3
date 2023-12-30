@@ -3,6 +3,9 @@ from flask import (
     Flask, flash, render_template,
     redirect, request,
     session, url_for)
+from flask_wtf import FlaskForm
+from wtforms.validators import InputRequired
+from wtforms import StringField, PasswordField
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -19,9 +22,24 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+class LoginForm(FlaskForm):
+    username = StringField('username', validators=[InputRequired()])
+    password = PasswordField('password', validators=[InputRequired()])
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route('/form', methods=["GET", "POST"])
+def form():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        return '<h1>The username is {}. The password is {}.'.format(
+            form.username.data, form.password.data)
+    return render_template('form.html', form=form)
 
 
 @app.route("/register", methods=["GET", "POST"])
