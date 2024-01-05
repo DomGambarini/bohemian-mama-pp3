@@ -5,7 +5,9 @@ from flask import (
     session, url_for)
 from flask_wtf import FlaskForm
 from wtforms.validators import InputRequired
-from wtforms import StringField, PasswordField
+from wtforms import (
+    StringField, PasswordField,
+    SubmitField, SelectField, TextAreaField)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -22,9 +24,25 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-class LoginForm(FlaskForm):
+class loginForm(FlaskForm):
     username = StringField('username', validators=[InputRequired()])
     password = PasswordField('password', validators=[InputRequired()])
+
+
+class addRecipe(FlaskForm):
+    recipe_Name = StringField('Recipe Name', validators=[InputRequired()])
+    ingredients = TextAreaField('Ingredients', validators=[InputRequired()])
+    submit = SubmitField('Add Recipe')
+
+
+@app.route('/add_recipe', methods=['GET', 'POST'])
+def add_recipe():
+    form = addRecipe()
+
+    if form.validate_on_submit():
+        return '<h2>You have successfully added your {} recipe!'.format(
+            form.recipe_Name.data)
+    return render_template('add-recipe.html', form=form)
 
 
 @app.route("/")
@@ -34,7 +52,7 @@ def index():
 
 @app.route('/form', methods=["GET", "POST"])
 def form():
-    form = LoginForm()
+    form = loginForm()
 
     if form.validate_on_submit():
         return '<h1>The username is {}. The password is {}.'.format(
@@ -111,12 +129,6 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
-
-@app.route("/seasonalrecipes.html")
-def seasonalrecipes():
-    recipes = mongo.db.recipes.find()
-    return render_template("seasonalrecipes.html", recipes=recipes)
 
 
 if __name__ == "__main__":

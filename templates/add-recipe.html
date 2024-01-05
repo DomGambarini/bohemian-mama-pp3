@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" action="{{ url_for('add_recipe') }}" class="active">
+    {{ form.csrf_token }}
+
+    {{ form.recipe_Name.label }}
+    {{ form.recipe_Name }}
+
+    {{ form.ingredients.label }}
+    {{ form.ingredients }}
+
+    {{ form.submit }}
+
+
+</form>
+
+
+
+{% endblock %}
