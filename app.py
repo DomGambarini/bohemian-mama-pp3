@@ -4,7 +4,7 @@ from flask import (
     redirect, request,
     session, url_for)
 from flask_wtf import FlaskForm
-from wtforms.validators import InputRequired
+from wtforms.validators import InputRequired, Length
 from wtforms import (
     StringField, PasswordField,
     SubmitField, SelectField, TextAreaField)
@@ -30,7 +30,8 @@ class loginForm(FlaskForm):
 
 
 class addRecipe(FlaskForm):
-    recipe_Name = StringField('Recipe Name', validators=[InputRequired()])
+    recipe_Name = StringField(
+        'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
     ingredients = TextAreaField('Ingredients', validators=[InputRequired()])
     submit = SubmitField('Add Recipe')
 
