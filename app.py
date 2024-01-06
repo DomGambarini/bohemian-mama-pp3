@@ -6,7 +6,7 @@ from flask import (
 from flask_wtf import FlaskForm, RecaptchaField
 from wtforms.validators import InputRequired, Length
 from wtforms import (
-    StringField, PasswordField,
+    StringField, PasswordField, RadioField,
     SubmitField, SelectField, TextAreaField)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -20,8 +20,9 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGODB_NAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-app.config['RECAPTCHA_PUBLIC_KEY'] = '6LeYdEcpAAAAAIq77wMgXmKOUg0mHwwBEZsOpqaz'
-app.config['RECAPTCHA_PRIVATE_KEY'] = '6LeYdEcpAAAAAFwYIedtAWxJuB7BKfrnaMzJcC1_'
+app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get("RECAPTCHA_PUBLIC_KEY")
+app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get("RECAPTCHA_PRIVATE_KEY")
+
 
 mongo = PyMongo(app)
 
@@ -35,6 +36,7 @@ class addRecipe(FlaskForm):
     recipe_Name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
     ingredients = TextAreaField('Ingredients', validators=[InputRequired()])
+    method = TextAreaField('Method', validators=[InputRequired()])
     submit = SubmitField('Add Recipe')
     recaptcha = RecaptchaField()
 

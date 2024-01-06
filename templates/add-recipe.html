@@ -1,16 +1,70 @@
 {% extends "base.html" %}
 {% block content %}
-<form method="POST" action="{{ url_for('add_recipe') }}" class="active">
+
+<h2>Add Your Own Seasonal Recipe</h2>
+<form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_recipe') }}">
     {{ form.csrf_token }}
 
-    {{ form.recipe_Name.label }}
-    {{ form.recipe_Name }}
+<!-------Recipe Name------->
+<div class="row">
+    <div class="input-field col s12">
+        <i class="fa-solid fa-utensils prefix light-green-text text-lighten-3"></i>
+        <input id="icon_prefix" type="text" class="validate">
+        <label for="icon_prefix">Recipe Name</label>
+    </div>
+</div>
 
-    {{ form.ingredients.label }}
-    {{ form.ingredients }}
+<!-------Select Season------->
+<div class="row">
+    <div class="input-field col s12">
+        <i class="fa-solid fa-cloud-sun-rain prefix light-green-text text-lighten-3"></i>
+        <select>
+            <option value="" disabled selected>Winter, Spring, Summer, Autumn</option>
+            <option value="1">Winter</option>
+            <option value="2">Spring</option>
+            <option value="3">Summer</option>
+            <option value="3">Autumn</option>
+        </select>
+        <label>Select Season</label>
+    </div>
+</div>
 
-    {{ form.recaptcha }}
-    {{ form.submit }}
+<!-------Ingredients------->
+<div class="row">
+    <div class="input-field col s12">
+        <i class="fa-solid fa-scale-balanced prefix light-green-text text-lighten-3"></i>
+        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+        <label for="icon_prefix2">Add Ingredients</label>
+    </div>
+</div>
+
+<!-------Method------->
+<div class="row">
+    <div class="input-field col s12">
+        <i class="fa-solid fa-fire-burner prefix light-green-text text-lighten-3"></i>
+        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+        <label for="icon_prefix2">Method</label>
+    </div>
+</div>
+
+<!-------Select Allergen and Dietary Needs------->
+<div class="row">
+<div class="input-field col s12">
+    <i class="fa-solid fa-circle-info prefix light-green-text text-lighten-3"></i>
+    <select multiple>
+        <option value="" disabled selected>Choose your option</option>
+        <option value="1">Suitable for vegetarian</option>
+        <option value="2">Contains nuts</option>
+        <option value="3">Contains gluten</option>
+        <option value="3">Suitable for vegans</option>
+    </select>
+    <label>Allergen and Dietary Information</label>
+</div>
+</div>
+
+     {{ form.recaptcha }}
+    
+<button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
 
 
 </form>
