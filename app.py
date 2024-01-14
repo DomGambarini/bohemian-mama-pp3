@@ -27,11 +27,6 @@ app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get("RECAPTCHA_PRIVATE_KEY")
 mongo = PyMongo(app)
 
 
-class loginForm(FlaskForm):
-    username = StringField('username', validators=[InputRequired()])
-    password = PasswordField('password', validators=[InputRequired()])
-
-
 class addRecipe(FlaskForm):
     recipe_Name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
@@ -39,6 +34,11 @@ class addRecipe(FlaskForm):
     method = TextAreaField('Method', validators=[InputRequired()])
     submit = SubmitField('Add Recipe')
     recaptcha = RecaptchaField()
+
+
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 
 @app.route('/add_recipe', methods=['GET', 'POST'])
@@ -51,19 +51,10 @@ def add_recipe():
     return render_template('add-recipe.html', form=form)
 
 
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-@app.route('/form', methods=["GET", "POST"])
-def form():
-    form = loginForm()
-
-    if form.validate_on_submit():
-        return '<h1>The username is {}. The password is {}.'.format(
-            form.username.data, form.password.data)
-    return render_template('form.html', form=form)
+@app.route('/recipes', methods=["GET", "POST"])
+def recipe():
+    recipes = mongo.db.recipes.find()
+    return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/register", methods=["GET", "POST"])
