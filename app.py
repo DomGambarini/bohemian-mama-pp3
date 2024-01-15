@@ -30,6 +30,8 @@ mongo = PyMongo(app)
 class addRecipe(FlaskForm):
     recipe_Name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
+    season = SelectField('Select Season', choices=[(
+        '1', 'Winter'), ('2', 'Spring'), ('3', 'Summer'), ('4', 'Autumn')])
     ingredients = TextAreaField('Ingredients', validators=[InputRequired()])
     method = TextAreaField('Method', validators=[InputRequired()])
     submit = SubmitField('Add Recipe')

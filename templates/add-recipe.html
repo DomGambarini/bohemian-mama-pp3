@@ -8,24 +8,20 @@
 <!-------Recipe Name------->
 <div class="row">
     <div class="input-field col s12">
-        <i class="fa-solid fa-utensils prefix light-green-text text-lighten-3"></i>
-        <input id="icon_prefix" type="text" class="validate">
-        <label for="icon_prefix">Recipe Name</label>
+        <i class="fas fa-utensils prefix light-green-text text-lighten-3"></i>
+        {{ form.recipe_Name.label(class="active", id="icon_prefix", for="icon_prefix") }}
+        {{ form.recipe_Name(class="validate") }}
     </div>
 </div>
 
 <!-------Select Season------->
 <div class="row">
     <div class="input-field col s12">
-        <i class="fa-solid fa-cloud-sun-rain prefix light-green-text text-lighten-3"></i>
-        <select>
-            <option value="" disabled selected>Winter, Spring, Summer, Autumn</option>
-            <option value="1">Winter</option>
-            <option value="2">Spring</option>
-            <option value="3">Summer</option>
-            <option value="3">Autumn</option>
-        </select>
-        <label>Select Season</label>
+        <i class="fas fa-cloud-sun-rain prefix light-green-text text-lighten-3"></i>
+
+        {{ form.season.label(class="active", id="icon_prefix", for="icon_prefix") }}
+        {{ form.season(class="browser-default") }}
+
     </div>
 </div>
 
