@@ -1,60 +1,94 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <h2>Add Your Own Seasonal Recipe</h2>
-<form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_recipe') }}">
-    {{ form.csrf_token }}
+<div class="row card-panel grey lighten-5">
+<form
+  class="col s12"
+  method="POST"
+  action="{{ url_for('add_recipe') }}"
+>
+  {{ form.csrf_token }}
 
-<!-------Recipe Name------->
+  <!-------Recipe Name------->
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="fas fa-utensils prefix light-green-text text-lighten-3"></i>
+      {{ form.recipe_name.label(class="active") }} 
+      {{ form.recipe_name(class="validate") }}
+    </div>
+  </div>
+
+<!-------Cook Time------->
 <div class="row">
     <div class="input-field col s12">
-        <i class="fas fa-utensils prefix light-green-text text-lighten-3"></i>
-        {{ form.recipe_Name.label(class="active", id="icon_prefix", for="icon_prefix") }}
-        {{ form.recipe_Name }}
+        <i class="fas fa-clock prefix light-green-text text-lighten-3"></i>
+        {{ form.cook_time.label(class="active") }}
+        {{ form.cook_time(class="validate") }}
     </div>
 </div>
 
-<!-------Select Season------->
+<!-------Serves------->
 <div class="row">
     <div class="input-field col s12">
-        <i class="fas fa-cloud-sun-rain prefix light-green-text text-lighten-3"></i>
+        <i class="fa-regular fa-user prefix light-green-text text-lighten-3"></i>
+        {{ form.serves.label(class="active") }}
+        {{ form.serves(class="validate") }}
+    </div>
+</div>
+
+  <!-------Select Season------->
+  <div class="row">
+    <div class="input-field col s12">
+      <i
+        class="fas fa-cloud-sun-rain prefix light-green-text text-lighten-3"
+      ></i>
+      {{ form.season.label(class="active") }} 
+      {{ form.season }}
+    </div>
+  </div>
+
+  <!-------Ingredients------->
+  <div class="row">
+    <div class="input-field col s12">
+      <i
+        class="fas fa-scale-balanced prefix light-green-text text-lighten-3"
+      ></i>
+      {{ form.ingredients.label(class="active") }} 
+      {{ form.ingredients(class="materialize-textarea validate") }}
+    </div>
+  </div>
+
+  <!-------Method------->
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="fas fa-fire-burner prefix light-green-text text-lighten-3"></i>
+      {{ form.method.label(class="active") }} 
+      {{form.method(class="materialize-textarea validate") }}
+    </div>
+  </div>
+
+<!-------Date------->
+<div class="row">
+    <div class="input-field col s12">
+        <i class="fas fa-calendar-alt prefix light-green-text text-lighten-3"></i>
+        {{ form.todays_date(class="datepicker validate") }}
+        {{ form.todays_date.label(class="active") }}
         
-        {{ form.season.label(class="active", id="icon_prefix", for="icon_prefix") }}
-        {{ form.season }}
     </div>
 </div>
 
-<!-------Ingredients------->
-<div class="row">
-    <div class="input-field col s12">
-        <i class="fas fa-scale-balanced prefix light-green-text text-lighten-3"></i>
-        {{ form.ingredients.label(class="active", id="icon_prefix2") }}
-        {{ form.ingredients(class_="materialize-textarea", id="icon_prefix2") }}
+  {{ form.recaptcha }}
+
+  <!-------Submit------->
+<div class="row"> 
+    <div class="col s12 center-align">
+        <button class="btn-large light-green waves-effect waves-light text-shadow" type="submit">
+        Submit
+        </button>
     </div>
 </div>
-
-
-<!-------Method------->
-<div class="row">
-    <div class="input-field col s12">
-        <i class="fas fa-fire-burner prefix light-green-text text-lighten-3"></i>
-        {{ form.method.label(class="active", id="icon_prefix2") }}
-        {{ form.method(class_="materialize-textarea", id="icon_prefix2") }}
-    </div>
-</div>
-
-
-
-
-
-
-     {{ form.recaptcha }}
-    
-<button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-
-
+  
 </form>
-
-
+</div>
 
 {% endblock %}

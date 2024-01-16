@@ -4,10 +4,12 @@ from flask import (
     redirect, request,
     session, url_for)
 from flask_wtf import FlaskForm, RecaptchaField
-from wtforms.validators import InputRequired, Length
+from wtforms.validators import (
+    InputRequired, Length, NumberRange, URL, DataRequired)
 from wtforms import (
-    StringField, PasswordField, RadioField,
-    SubmitField, SelectField, TextAreaField)
+    StringField, PasswordField, RadioField, IntegerField,
+    SubmitField, SelectField, TextAreaField, DateField)
+from datetime import date
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -28,13 +30,23 @@ mongo = PyMongo(app)
 
 
 class addRecipe(FlaskForm):
-    recipe_Name = StringField(
+    recipe_name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
+    cook_time = IntegerField(
+        'Cook/Prep Time in Minutes', validators=[
+            InputRequired(), NumberRange(min=1, max=300, message="Please enter a number between 1 and 300.")])
+    serves = IntegerField(
+        'How Many Does it Serve', validators=[
+            InputRequired(), NumberRange(min=1, max=20)])
     season = SelectField('Select Season', choices=[(
         '1', 'Winter'), ('2', 'Spring'), ('3', 'Summer'), ('4', 'Autumn')])
-    ingredients = TextAreaField('Ingredients', validators=[InputRequired()])
-    method = TextAreaField('Method', validators=[InputRequired()])
+    ingredients = TextAreaField('Ingredients', validators=[
+        InputRequired(), Length(min=30, max=300)])
+    method = TextAreaField('Method', validators=[
+        InputRequired(), Length(min=30, max=500)])
     submit = SubmitField('Add Recipe')
+    todays_date = DateField(
+        'Todays Date', format='%y-%m-%d', default=date.today(), validators=[])
     recaptcha = RecaptchaField()
 
 
@@ -46,10 +58,10 @@ def index():
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
     form = addRecipe()
-
+    seasons = mongo.db.seasons.find().sort("season_name", 1)
     if form.validate_on_submit():
         return '<h2>You have successfully added your {} recipe!'.format(
-            form.recipe_Name.data)
+            form.recipe_Name.data, seasons=seasons)
     return render_template('add-recipe.html', form=form)
 
 
