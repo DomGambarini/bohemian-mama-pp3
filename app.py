@@ -8,9 +8,9 @@ from wtforms.validators import (
     InputRequired, Length, NumberRange, URL, DataRequired)
 from wtforms import (
     StringField, PasswordField, RadioField, IntegerField,
-    SubmitField, SelectField, TextAreaField, DateField)
-from datetime import date
+    SubmitField, SelectField, TextAreaField, DateField, FileField)
 from flask_pymongo import PyMongo
+from datetime import date
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -19,11 +19,13 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGODB_NAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get("RECAPTCHA_PUBLIC_KEY")
 app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get("RECAPTCHA_PRIVATE_KEY")
+app.config['UPLOADED_IMAGES_DEST'] = 'uploads/images'
 
 
 mongo = PyMongo(app)
@@ -45,8 +47,7 @@ class addRecipe(FlaskForm):
     method = TextAreaField('Method', validators=[
         InputRequired(), Length(min=30, max=500)])
     submit = SubmitField('Add Recipe')
-    todays_date = DateField(
-        'Todays Date', format='%y-%m-%d', default=date.today(), validators=[])
+    image = FileField('Upload URL Image', validators=[URL()])
     recaptcha = RecaptchaField()
 
 
@@ -58,10 +59,8 @@ def index():
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
     form = addRecipe()
-    seasons = mongo.db.seasons.find().sort("season_name", 1)
     if form.validate_on_submit():
-        return '<h2>You have successfully added your {} recipe!'.format(
-            form.recipe_Name.data, seasons=seasons)
+        mongo.db.season.insert_one()
     return render_template('add-recipe.html', form=form)
 
 
