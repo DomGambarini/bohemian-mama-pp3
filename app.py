@@ -32,23 +32,21 @@ mongo = PyMongo(app)
 
 
 class addRecipe(FlaskForm):
+    season = SelectField('Select Season', choices=[(
+        '1', 'Winter'), ('2', 'Spring'), ('3', 'Summer'), ('4', 'Autumn')])
     recipe_name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
     cook_time = IntegerField(
-        'Cook/Prep Time in Minutes', validators=[
-            InputRequired(), NumberRange(min=1, max=300, message="Please enter a number between 1 and 300.")])
+        'Cook/Prep Time in Minutes', validators=[InputRequired(), NumberRange(
+            min=1, max=300, message="Please enter a number between 1 and 300.")])
     serves = IntegerField(
         'How Many Does it Serve', validators=[
             InputRequired(), NumberRange(min=1, max=20)])
-    season = SelectField('Select Season', choices=[(
-        '1', 'Winter'), ('2', 'Spring'), ('3', 'Summer'), ('4', 'Autumn')])
     ingredients = TextAreaField('Ingredients', validators=[
         InputRequired(), Length(min=30, max=300)])
     method = TextAreaField('Method', validators=[
         InputRequired(), Length(min=30, max=500)])
     submit = SubmitField('Add Recipe')
-    image = FileField('Upload URL Image', validators=[URL()])
-    recaptcha = RecaptchaField()
 
 
 @app.route("/")
@@ -60,11 +58,22 @@ def index():
 def add_recipe():
     form = addRecipe()
     if form.validate_on_submit():
-        mongo.db.season.insert_one()
+        recipe = {
+            "season": request.form.get("season"),
+            "recipe_name": request.form.get("recipe_name"),
+            "cook_time": request.form.get("cook_time"),
+            "serves": request.form.get("serves"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method")
+            }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Your recipe has been uploaded!")
+        return redirect(url_for("recipe"))
+
     return render_template('add-recipe.html', form=form)
 
 
-@app.route('/recipes', methods=["GET", "POST"])
+@app.route('/recipes', methods=["GET"])
 def recipe():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)

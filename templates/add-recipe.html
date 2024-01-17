@@ -10,6 +10,15 @@
 >
   {{ form.csrf_token }}
 
+<!-------Select Season------->
+<div class="row">
+    <div class="input-field col s12">
+        <i class="fas fa-cloud-sun-rain prefix light-green-text text-lighten-3"></i>
+        {{ form.season.label(class="active") }}
+        {{ form.season }}
+    </div>
+</div>
+
   <!-------Recipe Name------->
   <div class="row">
     <div class="input-field col s12">
@@ -37,17 +46,6 @@
     </div>
 </div>
 
-  <!-------Select Season------->
-  <div class="row">
-    <div class="input-field col s12">
-      <i
-        class="fas fa-cloud-sun-rain prefix light-green-text text-lighten-3"
-      ></i>
-      {{ form.season.label(class="active") }} 
-      {{ form.season }}
-    </div>
-  </div>
-
   <!-------Ingredients------->
   <div class="row">
     <div class="input-field col s12">
@@ -67,23 +65,7 @@
       {{form.method(class="materialize-textarea validate") }}
     </div>
   </div>
-
-
-<!-------Upload File------->
-<div class="row">
-    <div class="file-field input-field">
-        <div class="btn">
-            <span>File</span>
-            {{ form.image }}
-        </div>
-        <div class="file-path-wrapper">
-            {{ form.image.label }}
-            {{ form.image(class="file-path validate") }}
-        </div>
-    </div>
-</div>
-
-  {{ form.recaptcha }}
+  
 
   <!-------Submit------->
 <div class="row"> 
