@@ -2,13 +2,15 @@
 
 <h1>Seasonal Recipes</h1>
 
+{% for recipe in recipes %}
+
 <div class="row">
   <div class="col l4 m6 s12">
     <div class="card">
-      {% for recipe in recipes %}
+      
       <div class="card-image">
         <img
-          src="https://images.unsplash.com/photo-1578020190125-f4f7c18bc9cb?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src= "{{ recipe.image }}"
         />
         <span class="card-title">{{ recipe.recipe_name }}</span>
       </div>
@@ -20,9 +22,10 @@
       <div class="card-action">
         <a href="#">This is a link</a>
       </div>
-      {% endfor %}
+      
     </div>
   </div>
 </div>
+{% endfor %}
 
 {% endblock %}

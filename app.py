@@ -8,7 +8,7 @@ from wtforms.validators import (
     InputRequired, Length, NumberRange, URL, DataRequired)
 from wtforms import (
     StringField, PasswordField, RadioField, IntegerField,
-    SubmitField, SelectField, TextAreaField, DateField, FileField)
+    SubmitField, SelectField, TextAreaField, DateField, URLField)
 from flask_pymongo import PyMongo
 from datetime import date
 from bson.objectid import ObjectId
@@ -46,6 +46,7 @@ class addRecipe(FlaskForm):
         InputRequired(), Length(min=30, max=300)])
     method = TextAreaField('Method', validators=[
         InputRequired(), Length(min=30, max=500)])
+    image = URLField('Add URL Image Here', validators=[InputRequired()])
     submit = SubmitField('Add Recipe')
 
 
@@ -59,6 +60,7 @@ def add_recipe():
     form = addRecipe()
     if form.validate_on_submit():
         recipe = {
+            'image': request.form.get('image'),
             "season": request.form.get("season"),
             "recipe_name": request.form.get("recipe_name"),
             "cook_time": request.form.get("cook_time"),
@@ -132,14 +134,12 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
     if session["user"]:
-        return render_template("profile.html", username=username)
-
-    return redirect(url_for("login"))
+        return redirect(url_for("login"))
+    # grab the session user's username from db
+    user = mongo.db.users.find_one_or_404(
+        {"username": username})
+    return render_template("profile.html", username=username)
 
 
 @app.route("/signout")
