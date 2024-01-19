@@ -1,125 +1,124 @@
 .text-shadow {
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-nav, form, h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
+nav,
+form,
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
 }
 
 .sidenav {
-    font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
 #hero-image-1 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/cornish-home.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    
+  height: 800px;
+  width: 100%;
+  background: url("../images/cornish-home.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #hero-image-2 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/mum-kids.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    
+  height: 800px;
+  width: 100%;
+  background: url("../images/mum-kids.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #hero-image-3 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/fish.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-   
+  height: 800px;
+  width: 100%;
+  background: url("../images/fish.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #hero-image-4 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/cornish-cottage.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    
+  height: 800px;
+  width: 100%;
+  background: url("../images/cornish-cottage.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #hero-image-5 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/mushrooms.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 800px;
+  width: 100%;
+  background: url("../images/mushrooms.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #hero-image-6 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/vegetables.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 800px;
+  width: 100%;
+  background: url("../images/vegetables.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #hero-image-7 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/girl-cooking.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 800px;
+  width: 100%;
+  background: url("../images/girl-cooking.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #hero-image-8 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/plant.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 800px;
+  width: 100%;
+  background: url("../images/plant.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #hero-image-9 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/kids-cooking.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 800px;
+  width: 100%;
+  background: url("../images/kids-cooking.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #hero-image-10 {
-    height: 800px;
-    width: 100%;
-    background: url("../images/greenhouse.jpg") no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 800px;
+  width: 100%;
+  background: url("../images/greenhouse.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .card .card-image img {
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .carousel {
-    height: 800px;
+  height: 800px;
 }
-

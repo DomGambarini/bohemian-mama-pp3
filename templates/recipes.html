@@ -2,32 +2,36 @@
 
 <title>Bohemian Mama | Recipes</title>
 
-<h1>Seasonal Recipes</h1>
+<h1 class="center-align">Seasonal Recipes</h1>
 
 {% for recipe in recipes %}
 
 <div class="row">
   <div class="col l4 m6 s12">
     <div class="card">
-      
       <div class="card-image">
-        <img
-          src= "{{ recipe.image }}"
-        />
-        <span class="card-title">{{ recipe.recipe_name }}</span>
+        <img src="{{ recipe.image }}" />
       </div>
       <div class="card-content">
+        <p><strong>Season:</strong> {{ recipe.season }}</p>
+        <p><strong>Recipe Name:</strong> {{ recipe.recipe_name }}</p>
+        <p><strong>Cook / Prep:</strong> {{ recipe.cook_time }}</p>
+        <p><strong>Serves:</strong> {{ recipe.serves }}</p>
         <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
         <p><strong>Method:</strong> {{ recipe.method }}</p>
+        <p><strong>Date:</strong> {{ recipe.date }}</p>
       </div>
 
       <div class="card-action">
         <a href="#">This is a link</a>
       </div>
-      
+    <div class="card-action">
+        <a href="#" class="btn-small light-green lighetn-1">Edit</a>
+    </div>
+    <div class="card-action">
+        <a href="#" class="btn-small light-green lighetn-1">Done</a>
+    </div>
     </div>
   </div>
+  {% endfor %} {% endblock %}
 </div>
-{% endfor %}
-
-{% endblock %}
