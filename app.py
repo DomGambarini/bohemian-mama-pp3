@@ -89,7 +89,8 @@ def edit_recipe(recipe_id):
     form = addRecipe()
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     season = mongo.db.season.find().sort("season_name", 1)
-    return render_template("edit-recipe.html", recipe=recipe, form=form)
+    return render_template(
+        "edit-recipe.html", form=form, recipe=recipe, season=season)
 
 
 @app.route("/register", methods=["GET", "POST"])
