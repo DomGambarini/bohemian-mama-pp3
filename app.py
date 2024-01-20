@@ -74,7 +74,8 @@ def add_recipe():
         flash("Your recipe has been uploaded!")
         return redirect(url_for("recipe"))
 
-    return render_template('add-recipe.html', form=form)
+    season = mongo.db.season.find().sort("season_name", 1)
+    return render_template('add-recipe.html', season=season, form=form)
 
 
 @app.route('/recipes', methods=["GET"])
@@ -85,10 +86,10 @@ def recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    form = addRecipe()
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-
     season = mongo.db.season.find().sort("season_name", 1)
-    return render_template("edit-recipe.html", season=season)
+    return render_template("edit-recipe.html", recipe=recipe, form=form)
 
 
 @app.route("/register", methods=["GET", "POST"])
