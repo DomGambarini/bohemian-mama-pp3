@@ -32,8 +32,9 @@ mongo = PyMongo(app)
 
 
 class addRecipe(FlaskForm):
-    season = SelectField('Select Season', choices=[(
-        'Winter'), ('Spring'), ('Summer'), ('Autumn')])
+    season_name = SelectField('Select Season', choices=[('', 'Choose a Season'),
+    ('Winter', 'Winter'), ('Spring', 'Spring'), 
+    ('Summer', 'Summer'), ('Autumn', 'Autumn')])
     recipe_name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
     cook_time = IntegerField(
@@ -62,7 +63,7 @@ def add_recipe():
     if form.validate_on_submit():
         recipe = {
             'image': request.form.get('image'),
-            "season": request.form.get("season"),
+            "season_name": request.form.get("season_name"),
             "recipe_name": request.form.get("recipe_name"),
             "cook_time": request.form.get("cook_time"),
             "serves": request.form.get("serves"),
@@ -74,8 +75,8 @@ def add_recipe():
         flash("Your recipe has been uploaded!")
         return redirect(url_for("recipe"))
 
-    season = mongo.db.season.find().sort("season_name", 1)
-    return render_template('add-recipe.html', season=season, form=form)
+    seasons = mongo.db.season.find().sort("season_name", 1)
+    return render_template('add-recipe.html', seasons=seasons, form=form)
 
 
 @app.route('/recipes', methods=["GET"])

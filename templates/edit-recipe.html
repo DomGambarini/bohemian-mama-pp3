@@ -14,8 +14,9 @@
 <div class="row">
     <div class="input-field col s12">
         <i class="fas fa-cloud-sun-rain prefix light-green-text text-lighten-3"></i>
-        {{ form.season.label(class="active") }}
-        {{ form.season (value=recipe.season) }}
+       
+        {{ form.season_name.label(class="active") }}
+        {{ recipe.season_name }}
     </div>
 </div>
 
@@ -55,7 +56,8 @@
         class="fas fa-scale-balanced prefix light-green-text text-lighten-3"
       ></i>
       {{ form.ingredients.label(class="active") }}
-      {{ form.ingredients(class="materialize-textarea validate") }}
+      {{ form.ingredients(class="materialize-textarea validate", value=recipe.ingredients)  }}
+      
     </div>
   </div>
 
