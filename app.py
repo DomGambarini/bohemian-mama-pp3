@@ -68,8 +68,7 @@ def add_recipe():
             "cook_time": request.form.get("cook_time"),
             "serves": request.form.get("serves"),
             "ingredients": request.form.get("ingredients"),
-            "method": request.form.get("method"),
-            "date": request.form.get("date")
+            "method": request.form.get("method")
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Your recipe has been uploaded!")
@@ -88,6 +87,22 @@ def recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     form = addRecipe()
+    if form.validate_on_submit():
+        submit_recipe = {
+            'image': request.form.get('image'),
+            "season_name": request.form.get("season_name"),
+            "recipe_name": request.form.get("recipe_name"),
+            "cook_time": request.form.get("cook_time"),
+            "serves": request.form.get("serves"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method")
+        }
+        update_recipe = {"$set": submit_recipe}
+        mongo.db.recipes.update_one({"_id": ObjectId(
+            recipe_id)}, update_recipe)
+        flash("Recipe successfully update!")
+        return redirect(url_for("edit_recipe", recipe_id=recipe_id))
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     season = mongo.db.season.find().sort("season_name", 1)
     return render_template(
