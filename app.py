@@ -20,26 +20,24 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 
-app.config["MONGO_DBNAME"] = os.environ.get("MONGODB_NAME")
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get("RECAPTCHA_PUBLIC_KEY")
-app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get("RECAPTCHA_PRIVATE_KEY")
-app.config['UPLOADED_IMAGES_DEST'] = 'uploads/images'
 
 
 mongo = PyMongo(app)
 
 
 class addRecipe(FlaskForm):
-    season_name = SelectField('Select Season', choices=[('', 'Choose a Season'),
-    ('Winter', 'Winter'), ('Spring', 'Spring'), 
-    ('Summer', 'Summer'), ('Autumn', 'Autumn')])
+    season_name = SelectField('Select Season', choices=[(
+        '', 'Choose a Season'), ('Winter', 'Winter'), ('Spring', 'Spring'), (
+            'Summer', 'Summer'), ('Autumn', 'Autumn')])
     recipe_name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
     cook_time = IntegerField(
         'Cook/Prep Time in Minutes', validators=[InputRequired(), NumberRange(
-            min=1, max=300, message="Please enter a number between 1 and 300.")])
+            min=1, max=300, message="Please enter a number between 1 and 300."
+            )])
     serves = IntegerField(
         'How Many Does it Serve', validators=[
             InputRequired(), NumberRange(min=1, max=20)])
