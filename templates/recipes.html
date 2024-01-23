@@ -25,9 +25,11 @@
       <div class="card-action">
         <a href="#">This is a link</a>
       </div>
+      {% if session.user|lower == recipe.created_by|lower %}
     <div class="card-action">
         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small light-green lighetn-1">Edit</a>
     </div>
+      {% endif %}
     <div class="card-action">
         <a href="#" class="btn-small light-green lighetn-1">Done</a>
     </div>
