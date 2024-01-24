@@ -108,6 +108,8 @@ def signin():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    if "user" not in session:
+        return redirect(url_for('signin'))
     # grab the session user's username from db
     username = mongo.db.bm_users.find_one(
         {"username": session["user"]})["username"]
@@ -128,6 +130,8 @@ def logout():
 
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
+    if "user" not in session:
+        return redirect(url_for('signin'))
     form = addRecipe()
     if form.validate_on_submit():
         recipe = {
@@ -137,7 +141,8 @@ def add_recipe():
             "cook_time": request.form.get("cook_time"),
             "serves": request.form.get("serves"),
             "ingredients": request.form.get("ingredients"),
-            "method": request.form.get("method")
+            "method": request.form.get("method"),
+            "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Your recipe has been uploaded!")
@@ -155,22 +160,25 @@ def recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if "user" not in session:
+        return redirect(url_for('signin'))
     form = addRecipe()
     if form.validate_on_submit():
         submit_recipe = {
             'image': request.form.get('image'),
-            "season_name": request.form.get("season_name"),
+            "season_name": request.form.getlist("season_name"),
             "recipe_name": request.form.get("recipe_name"),
             "cook_time": request.form.get("cook_time"),
             "serves": request.form.get("serves"),
             "ingredients": request.form.get("ingredients"),
-            "method": request.form.get("method")
+            "method": request.form.get("method"),
+            "created_by": session["user"]
         }
         update_recipe = {"$set": submit_recipe}
         mongo.db.recipes.update_one({"_id": ObjectId(
             recipe_id)}, update_recipe)
-        flash("Recipe successfully update!")
-        return redirect(url_for("edit_recipe", recipe_id=recipe_id))
+        flash("Recipe successfully updated!")
+        return redirect(url_for("recipe", recipe_id=recipe_id))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     season = mongo.db.season.find().sort("season_name", 1)
