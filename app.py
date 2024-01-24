@@ -32,7 +32,7 @@ formatted_date = current_time.strftime("%d/%m/%Y")
 
 
 class addRecipe(FlaskForm):
-    season_name = SelectField('Select Season', choices=[(
+    season = SelectField('Select Season', choices=[(
         '', 'Choose a Season'), ('Winter', 'Winter'), ('Spring', 'Spring'), (
             'Summer', 'Summer'), ('Autumn', 'Autumn')])
     recipe_name = StringField(
@@ -138,7 +138,7 @@ def add_recipe():
     if form.validate_on_submit():
         recipe = {
             'image': request.form.get('image'),
-            "season_name": request.form.get("season_name"),
+            "season": request.form.getlist("season"),
             "recipe_name": request.form.get("recipe_name"),
             "cook_time": request.form.get("cook_time"),
             "serves": request.form.get("serves"),
@@ -151,8 +151,7 @@ def add_recipe():
         flash("Your recipe has been uploaded!")
         return redirect(url_for("recipe"))
 
-    seasons = mongo.db.season.find().sort("season_name", 1)
-    return render_template('add-recipe.html', seasons=seasons, form=form)
+    return render_template('add-recipe.html', form=form)
 
 
 @app.route('/recipes', methods=["GET"])
@@ -169,7 +168,7 @@ def edit_recipe(recipe_id):
     if form.validate_on_submit():
         submit_recipe = {
             'image': request.form.get('image'),
-            "season_name": request.form.getlist("season_name"),
+            "season": request.form.getlist("season"),
             "recipe_name": request.form.get("recipe_name"),
             "cook_time": request.form.get("cook_time"),
             "serves": request.form.get("serves"),
@@ -185,16 +184,14 @@ def edit_recipe(recipe_id):
         return redirect(url_for("recipe", recipe_id=recipe_id))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    season = mongo.db.season.find().sort("season_name", 1)
     return render_template(
-        "edit-recipe.html", form=form, recipe=recipe, season=season)
+        "edit-recipe.html", form=form, recipe=recipe)
 
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     if "user" not in session:
         return redirect(url_for('signin'))
-   
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("Recipe Deleted")
     return redirect(url_for("recipe", recipe_id=recipe_id))

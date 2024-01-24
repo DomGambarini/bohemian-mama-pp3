@@ -40,18 +40,19 @@
           <ul class="right hide-on-med-and-down">
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('recipe') }}">Recipes</a></li>
-           
+        {% if session.user %}
             <li>
               <a href="{{ url_for('profile', username=session['user']) }}"
-                >Profile</a>
+                >profile</a>
             </li>
             <li>
               <a href="{{ url_for('add_recipe') }}">Add Seasonal Recipes </a>
             </li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% else %}
             <li><a href="{{ url_for('signin') }}">Login</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
-           
+           {% endif %}
           </ul>
         </div>
       </nav>
@@ -61,13 +62,16 @@
         <li><h4 class="center-align">BOHEMIAN MAMA</h4></li>
         <li><a href="{{ url_for('index') }}">Home</a></li>
         <li><a href="{{ url_for('recipe') }}">Recipes</a></li>
+        {% if session.user %}
         <li>
           <a href="{{ url_for('profile', username=session['user']) }}"
             >Profile</a></li>
         <li><a href="{{ url_for('add_recipe') }}">Add Seasonal Recipes </a></li>
         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        {% else %}
         <li><a href="{{ url_for('signin') }}">Sign In</a></li>
         <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% endif %}
       </ul>
     </header>
 
