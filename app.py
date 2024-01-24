@@ -10,8 +10,9 @@ from wtforms import (
     StringField, PasswordField, RadioField, IntegerField,
     SubmitField, SelectField, TextAreaField, DateField, URLField)
 from flask_pymongo import PyMongo
-from datetime import date
+from datetime import datetime
 from bson.objectid import ObjectId
+from datetime import datetime, date
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -26,6 +27,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
+current_time = datetime.now()
+formatted_date = current_time.strftime("%d/%m/%Y")
 
 
 class addRecipe(FlaskForm):
@@ -46,7 +49,6 @@ class addRecipe(FlaskForm):
     method = TextAreaField('Method', validators=[
         InputRequired(), Length(min=30, max=500)])
     image = URLField('Add URL Image Here', validators=[InputRequired()])
-    date = DateField(format='%Y-%m-%d')
     submit = SubmitField('Add Recipe')
 
 
@@ -142,7 +144,8 @@ def add_recipe():
             "serves": request.form.get("serves"),
             "ingredients": request.form.get("ingredients"),
             "method": request.form.get("method"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "posted": formatted_date
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Your recipe has been uploaded!")
@@ -172,8 +175,9 @@ def edit_recipe(recipe_id):
             "serves": request.form.get("serves"),
             "ingredients": request.form.get("ingredients"),
             "method": request.form.get("method"),
-            "created_by": session["user"]
-        }
+            "created_by": session["user"],
+            "posted": formatted_date
+            }
         update_recipe = {"$set": submit_recipe}
         mongo.db.recipes.update_one({"_id": ObjectId(
             recipe_id)}, update_recipe)
