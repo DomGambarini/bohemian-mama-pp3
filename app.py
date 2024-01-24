@@ -190,6 +190,16 @@ def edit_recipe(recipe_id):
         "edit-recipe.html", form=form, recipe=recipe, season=season)
 
 
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    if "user" not in session:
+        return redirect(url_for('signin'))
+   
+    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
+    flash("Recipe Deleted")
+    return redirect(url_for("recipe", recipe_id=recipe_id))
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("I.P", "0.0.0.0"),
