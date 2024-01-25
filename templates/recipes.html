@@ -13,7 +13,7 @@
         <img src="{{ recipe.image }}" />
       </div>
       <div class="card-content">
-        <p><strong>Season:</strong> {{ recipe.season }}</p>
+        <p><strong>Season:</strong> {{ recipe.season_name }}</p>
         <p><strong>Recipe Name:</strong> {{ recipe.recipe_name }}</p>
         <p><strong>Cook / Prep:</strong> {{ recipe.cook_time }}</p>
         <p><strong>Serves:</strong> {{ recipe.serves }}</p>
@@ -29,25 +29,7 @@
     
     </div>
     {% endif %}
-    <!-- Modal Trigger -->
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">FULL RECIPE</a>
     
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>{{ recipe.recipe_name }}</h4>
-            <p><strong>Season:</strong> {{ recipe.season }}</p>
-            <p><strong>Cook / Prep:</strong> {{ recipe.cook_time }}</p>
-            <p><strong>Serves:</strong> {{ recipe.serves }}</p>
-            <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
-            <p><strong>Method:</strong> {{ recipe.method }}</p>
-            <p><strong>Created By:</strong> {{ recipe.created_by }}</p>
-            <p><strong>Date Posted:</strong> {{ recipe.posted }}</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">AGREE</a>
-        </div>
-    </div>
   
     </div>
   </div>

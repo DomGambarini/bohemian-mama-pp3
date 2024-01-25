@@ -32,8 +32,8 @@ formatted_date = current_time.strftime("%d/%m/%Y")
 
 
 class addRecipe(FlaskForm):
-    season = SelectField('Select Season', choices=[(
-        '', 'Choose a Season'), ('Winter', 'Winter'), ('Spring', 'Spring'), (
+    season_name = SelectField(u'Select a Season', validate_choice=True, choices=[(
+        'Winter', 'Winter'), ('Spring', 'Spring'), (
             'Summer', 'Summer'), ('Autumn', 'Autumn')])
     recipe_name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
@@ -138,7 +138,7 @@ def add_recipe():
     if form.validate_on_submit():
         recipe = {
             'image': request.form.get('image'),
-            "season": request.form.getlist("season"),
+            "season_name": request.form.get("season_name"),
             "recipe_name": request.form.get("recipe_name"),
             "cook_time": request.form.get("cook_time"),
             "serves": request.form.get("serves"),
@@ -151,13 +151,8 @@ def add_recipe():
         flash("Your recipe has been uploaded!")
         return redirect(url_for("recipe"))
 
-    return render_template('add-recipe.html', form=form)
-
-
-@app.route('/recipes', methods=["GET"])
-def recipe():
-    recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html", recipes=recipes)
+    seasons = mongo.db.seasons.find().sort("season_name", 1)
+    return render_template('add-recipe.html', seasons=seasons, form=form)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -168,7 +163,7 @@ def edit_recipe(recipe_id):
     if form.validate_on_submit():
         submit_recipe = {
             'image': request.form.get('image'),
-            "season": request.form.getlist("season"),
+            "season_name": request.form.get("season_name"),
             "recipe_name": request.form.get("recipe_name"),
             "cook_time": request.form.get("cook_time"),
             "serves": request.form.get("serves"),
@@ -181,11 +176,19 @@ def edit_recipe(recipe_id):
         mongo.db.recipes.update_one({"_id": ObjectId(
             recipe_id)}, update_recipe)
         flash("Recipe successfully updated!")
-        return redirect(url_for("recipe", recipe_id=recipe_id))
+        seasons = mongo.db.seasons.find().sort("season_name", 1)
+        return redirect(url_for(
+            "recipe", seasons=seasons, recipe_id=recipe_id))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template(
         "edit-recipe.html", form=form, recipe=recipe)
+
+
+@app.route('/recipes', methods=["GET"])
+def recipe():
+    recipes = list(mongo.db.recipes.find())
+    return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/delete_recipe/<recipe_id>")
