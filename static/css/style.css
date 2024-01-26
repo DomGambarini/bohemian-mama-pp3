@@ -114,3 +114,22 @@ ul:not(.browser-default) {
 footer {
     margin-top: 100px;
 }
+
+/********** Register Link on Sign In Page *************/
+
+#sign-up-link {
+    margin-bottom: 220px;
+}
+
+/********** Sign In Link on Register Page *************/
+
+#register-link {
+    margin-bottom: 220px;
+}
+
+/********** Profile Page *************/
+
+#profile-card {
+    margin-bottom: 400px;
+    margin-top: 40px;
+}

@@ -45,9 +45,9 @@ class addRecipe(FlaskForm):
         'How Many Does it Serve', validators=[
             InputRequired(), NumberRange(min=1, max=20)])
     ingredients = TextAreaField('Ingredients', validators=[
-        InputRequired(), Length(min=30, max=300)])
+        InputRequired(), Length(min=30, max=1000)])
     method = TextAreaField('Method', validators=[
-        InputRequired(), Length(min=30, max=500)])
+        InputRequired(), Length(min=30, max=5000)])
     image = URLField('Add URL Image Here', validators=[InputRequired()])
     submit = SubmitField('Add Recipe')
 
