@@ -24,16 +24,6 @@ h3 {
   background-size: cover;
 }
 
-#hero-image-2 {
-  height: 800px;
-  width: 100%;
-  background: url("../images/mum-kids.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 #hero-image-3 {
   height: 800px;
   width: 100%;
@@ -74,40 +64,10 @@ h3 {
   background-size: cover;
 }
 
-#hero-image-7 {
-  height: 800px;
-  width: 100%;
-  background: url("../images/girl-cooking.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#hero-image-8 {
-  height: 800px;
-  width: 100%;
-  background: url("../images/plant.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 #hero-image-9 {
   height: 800px;
   width: 100%;
   background: url("../images/kids-cooking.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#hero-image-10 {
-  height: 800px;
-  width: 100%;
-  background: url("../images/greenhouse.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -121,4 +81,18 @@ h3 {
 
 .carousel {
   height: 800px;
+}
+
+
+
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+}
+
+.list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
 }
