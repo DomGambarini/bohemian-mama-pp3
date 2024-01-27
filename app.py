@@ -204,4 +204,4 @@ if __name__ == "__main__":
     app.run(
         host=os.environ.get("I.P", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=False)
+        debug=True)
