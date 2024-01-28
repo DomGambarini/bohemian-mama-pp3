@@ -224,6 +224,21 @@ The manual testing procedure involved examining the functions of individual webs
 | Edit Recipe Page | Click cancel button | Redirect to recipes page | PASS |
 | Edit Page | Enter data in fields correctly and click submit | Redirect to recipes page with the updated recipe visiable and flash message | PASS |
 
+### W3C HTML Validator Testing
+
+The [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML files.
+
+![HTML Validation](documentation/testing-images/html-checker-CA.png)
+![HTML Heroku Validation](documentation/testing-images/html-checker-heroku.png)
+
+### W3C CSS Validator Testing
+
+![style.css validation](documentation/testing-images/css-validator.png)
+
+### Python Linter
+
+![python linter](documentation/testing-images/app.py.python-linter.png)
+
 ## Deployment
 
 ### Setting up GitHub pages

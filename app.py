@@ -32,14 +32,15 @@ formatted_date = current_time.strftime("%d/%m/%Y")
 
 
 class addRecipe(FlaskForm):
-    season_name = SelectField('Select a Season', choices=[('Winter', 'Winter'), ('Spring', 'Spring'), (
+    season_name = SelectField('Select a Season', choices=[(
+        'Winter', 'Winter'), ('Spring', 'Spring'), (
             'Summer', 'Summer'), ('Autumn', 'Autumn')])
     recipe_name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
     cook_time = IntegerField(
         'Cook/Prep Time in Minutes', validators=[InputRequired(), NumberRange(
             min=1, max=300, message="Please enter a number between 1 and 300."
-            )])
+        )])
     serves = IntegerField(
         'How Many Does it Serve', validators=[
             InputRequired(), NumberRange(min=1, max=20)])
@@ -90,7 +91,8 @@ def signin():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"],
+               request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for("profile", username=session["user"]))
@@ -170,7 +172,7 @@ def edit_recipe(recipe_id):
             "method": request.form.get("method"),
             "created_by": session["user"],
             "posted": formatted_date
-            }
+        }
         update_recipe = {"$set": submit_recipe}
         mongo.db.recipes.update_one({"_id": ObjectId(
             recipe_id)}, update_recipe)
