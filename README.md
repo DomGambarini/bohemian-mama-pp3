@@ -124,10 +124,10 @@ Below this there is an about section which explains the inspiration behind the b
 ![Image of the homepage](documentation/website-images/fish-homepage-carousel.png)
 ![About Content homepage](documentation/website-images/about-homepage.png)
 
-### Register
+### Register Page
 
 We have a simple registration page that requires users to enter a username and password.
-For a user to regsietr accordingly the username and password must be between 5 and 15 characters containing only letters (upper or lower case) and/or numbers. 
+For a user to regsietr accordingly the username and password must be between 5 and 15 characters containing only letters (upper or lower case) and/or numbers. There is also a link below for those that have already registered.
 
 ![Register Page](documentation/website-images/register.png)
 
@@ -137,6 +137,16 @@ If the input fields are filled in without the required letters or numbers an err
 
 If a field is not filled an error message will display. 
 ![About Content homepage](documentation/website-images/please-fill-in-field.png)
+
+### Sign In Page
+
+The sign in page is similar looking to the register page. It has a register account link below. 
+![Sign In Page](documentation/website-images/sign-in.png)
+
+A flash error message is displayed if the incorrect username and / or password is entered.
+![Flash Sign In Error message](documentation/website-images/flash-incorrect-username-password.png)
+
+If the user does not enter the correct number of characters similar to the register page it will display the same input field and format messages. 
 
 ## Deployment
 
