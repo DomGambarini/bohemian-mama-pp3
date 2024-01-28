@@ -183,7 +183,7 @@ You can also delete your own recipies as a user.
 
 ![Recipes Page](documentation/website-images/delete-recipe.png)
 
-## Testing 
+## Testing
 
 The manual testing procedure involved examining the functions of individual website features. Chrome DevTools facilitated testing across various screen dimensions.
 
