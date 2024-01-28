@@ -17,6 +17,7 @@
        
         {{ form.season_name.label(class="active") }}
         {{ form.season_name }}
+        
     </div>
 </div>
 
@@ -56,7 +57,7 @@
         class="fas fa-scale-balanced prefix light-green-text text-lighten-3"
       ></i>
       {{ form.ingredients.label(class="active") }}
-      {{ form.ingredients(class="materialize-textarea validate", value=recipe.ingredients)  }}
+      {{ form.ingredients(class="materialize-textarea validate", value=form.ingredients.data)  }}
       
     </div>
   </div>

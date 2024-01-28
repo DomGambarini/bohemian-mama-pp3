@@ -4,6 +4,17 @@
 
 ## Table of Contents
 
+- [Blog-Goals](#blog-goals)
+- [5-Planes-of-UX](#5-planes-of-ux)
+- [User-Stories](#user-stories)
+- [Wireframes](#wireframes)
+- [Features](#features)
+- [Technology](#technology)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+- [References](#references)
+
 ## Blog Goals
 
 ### Bohemian Mama is designed to achieve the following goals
@@ -44,7 +55,7 @@ Implement feedback mechanisms, such as confirmation messages and notifications, 
 - I want to learn more about the blog owner and her approach to cooking with seasonal produce.
 
 ### As a Regular User
-- I want to create a user profile to save my favourite recipes and personalize my experience.
+- I want to create a user profile to edit and delete my recipes and personalize my experience.
 
 ### As a Novice Cook 
 - I want clear, step-by-step instructions with images to help me follow the recipes easily. 
@@ -55,7 +66,6 @@ Implement feedback mechanisms, such as confirmation messages and notifications, 
 
 ### As a Mobile User
 - I want the website to be mobile-friendly so I can access recipes easily from my phone or tablet.
-- I want to receive push notifications for new recipes or community activities.
 
 ### As a Community Member
 - I want to leave comments on recipes to share my thoughts or ask questions.
@@ -68,6 +78,33 @@ Implement feedback mechanisms, such as confirmation messages and notifications, 
 ### As a Contributor
 - I want a straightforward process to submit my own recipes, complete with images and personal anecdotes.
 - I want my contributions to be recognized, whether through a featured section or community spotlight.
+
+## Wireframes
+
+#### Homepage
+
+![Homepage](documentation/wireframes/bm-homepage-wf.png)
+
+#### Register
+
+![Register](documentation/wireframes/bm-register-wf.png)
+
+#### Login
+
+![Login](documentation/wireframes/bm-login-wf.png)
+
+#### Add Recipe
+
+![Add Recipe](documentation/wireframes/bm-add-recipe-wf.png)
+
+#### Edit Recipe
+
+![Edit Recipe](documentation/wireframes/bm-edit-recipe-wf.png)
+
+#### Recipes
+
+![Recipes](documentation/wireframes/bm-recipes-wf.png)
+
 
 ## Deployment
 
