@@ -133,7 +133,7 @@ For a user to regsietr accordingly the username and password must be between 5 a
 
 If the input fields are filled in without the required letters or numbers an error message will display.
 
-![Error Messge](documentation/website-images/please-match-format.png)
+![Error Messge](documentation/website-images/please-match-format-request.png)
 
 If a field is not filled an error message will display. 
 ![About Content homepage](documentation/website-images/please-fill-in-field.png)
@@ -146,7 +146,42 @@ The sign in page is similar looking to the register page. It has a register acco
 A flash error message is displayed if the incorrect username and / or password is entered.
 ![Flash Sign In Error message](documentation/website-images/flash-incorrect-username-password.png)
 
-If the user does not enter the correct number of characters similar to the register page it will display the same input field and format messages. 
+If the user does not enter the correct number of characters similar to the register page it will display the same input field and format messages.
+
+### Profile Page
+
+Once logged in it will direct you to the profile page with flash message above.
+![Sign In Page](documentation/website-images/profile.png)
+
+### Add Seasonal Recipe Page
+
+Once logged in you can add a seasonal recipe. The form consists of a selectfield input to select a season the recipe represents. Like all the forms on the site it will display a required error which is highlighted with a red line if the input field requirements are not met.
+
+![Add a Seasonal Recipe Page](documentation/website-images/add-recipe-form.png)
+![Select Field](documentation/website-images/selectfield.png)
+![Required Error Message](documentation/website-images/required-error-message.png)
+
+### Recipes
+
+The seaonal recipes page displays recipes from all users of the site. Only the user in session can edit or delete their own recipe. Once an a recipe has been created from the Add Seasonal Recipes page it will direct you to the recipes page with a flash message.
+
+![Recipes Page](documentation/website-images/recipes.png)
+
+### Edit Recipe
+
+If you click the edit link it will bring you to the edit recipe page. From here you can edit any of the input fields displayed or cancel if you wish to exit without making any changes. All required fields and error messages are the same as the other form on the site. 
+
+![Edit Form](documentation/website-images/edit-recipe.png)
+
+If a recipe has been edited correctly it will redirect to the recipes page and a flash meassge will display.
+
+![Recipes Page](documentation/website-images/recipe-successfully-updated.png)
+
+### Delete Recipe
+
+You can also delete your own recipies as a user. 
+
+![Recipes Page](documentation/website-images/delete-recipe.png)
 
 ## Deployment
 
