@@ -105,6 +105,38 @@ Implement feedback mechanisms, such as confirmation messages and notifications, 
 
 ![Recipes](documentation/wireframes/bm-recipes-wf.png)
 
+## Features
+
+Each page consists of a navigation menu fixed to the top and a footer fixed to the bottom of the screen. 
+The navigation bar is responsive with the screen size and becomes a hamburger icon with aside menu when the screen size shrinks.
+
+![Navigation Bar Image](documentation/website-images/navbar.png)
+![Hamburger Icon Image](documentation/website-images/hamburger-image.png)
+![Hamburger Icon Image](documentation/website-images/hamburger-menu.png)
+![Footer Image](documentation/website-images/footer.png)
+
+### Homepage
+
+On the homepage you will see a carousel of hero images that set the tone of the website - local, ethical, home cooking.
+There is also a call to action button to encourage new users to sign up - Join the Community!
+Below this there is an about section which explains the inspiration behind the blog and why new users should join the community.
+
+![Image of the homepage](documentation/website-images/fish-homepage-carousel.png)
+![About Content homepage](documentation/website-images/about-homepage.png)
+
+### Register
+
+We have a simple registration page that requires users to enter a username and password.
+For a user to regsietr accordingly the username and password must be between 5 and 15 characters containing only letters (upper or lower case) and/or numbers. 
+
+![Register Page](documentation/website-images/register.png)
+
+If the input fields are filled in without the required letters or numbers an error message will display.
+
+![Error Messge](documentation/website-images/please-match-format.png)
+
+If a field is not filled an error message will display. 
+![About Content homepage](documentation/website-images/please-fill-in-field.png)
 
 ## Deployment
 
