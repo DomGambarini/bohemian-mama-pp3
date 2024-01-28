@@ -26,6 +26,7 @@ ul:not(.browser-default) {
     padding-right: 30px;
 }
 
+
 /************* Hero Image **************/
 
 #hero-image-1 {
@@ -132,4 +133,12 @@ footer {
 #profile-card {
     margin-bottom: 400px;
     margin-top: 40px;
+}
+
+
+
+@media only screen and (max-width: 580px) {
+    nav.nav-extended .nav-wrapper {
+        height: 100px;
+    }
 }
