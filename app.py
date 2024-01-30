@@ -156,11 +156,21 @@ def add_recipe():
     return render_template('add-recipe.html', seasons=seasons, form=form)
 
 
+@app.route("/test/<recipe_id>", methods=["GET", "POST"])
+def test(recipe_id):
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    form = addRecipe(request.form, data=recipe)
+    print(recipe)
+    return render_template('edit-recipe copy.html', form=form, recipe=recipe)
+
+
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if "user" not in session:
         return redirect(url_for('signin'))
-    form = addRecipe()
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    form = addRecipe(request.form, data=recipe)
     if form.validate_on_submit():
         submit_recipe = {
             'image': request.form.get('image'),
@@ -181,7 +191,6 @@ def edit_recipe(recipe_id):
         return redirect(url_for(
             "recipe", seasons=seasons, recipe_id=recipe_id))
 
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template(
         "edit-recipe.html", form=form, recipe=recipe)
 
