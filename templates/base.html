@@ -12,7 +12,7 @@
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css">
     {% block styles %} {% endblock %}
-    <title>Bohemian Mama</title>
+    <title>Bohemian Mama | {% block title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -73,6 +73,7 @@
 
     <main>{% block content %} {% endblock %}</main>
 
+    <!------- Footer ------->
     <footer class="page-footer">
         <div class="container">
             <div class="row">

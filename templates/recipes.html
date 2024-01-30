@@ -1,8 +1,10 @@
-{% extends "base.html" %} {% block content %}
-
-<title>Bohemian Mama | Recipes</title>
+{% extends "base.html" %}
+{% block title %}Recipes{% endblock %}
+{% block content %}
 
 <h1 class="center-align">Seasonal Recipes</h1>
+
+<!-------Recipe Card------->
 
 {% for recipe in recipes %}
 

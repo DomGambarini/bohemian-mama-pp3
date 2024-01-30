@@ -125,7 +125,7 @@ footer {
     margin-top: 40px;
 }
 
-
+/********** Media Queries *************/
 
 @media only screen and (max-width: 580px) {
     nav.nav-extended .nav-wrapper {

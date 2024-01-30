@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository contains all the necessary information and code for the website of Hugo's Bistro, a fictional French restaurant located in Cardiff. The website aims to provide visitors with a positive online experience that encourages them to make a reservation and / or find information about the restaurant.
+Welcome to Bohemian Mama, a hub for seasonal recipes inspired by ethical and local living in Cornwall. Join our community of food enthusiasts, farmers, and foragers to explore vibrant dishes rooted in mindful choices. Register to access the full website experience, including the ability to share, create, edit, and delete recipes.
 
 ![Mock Up](documentation/website-images/mock-up.png)
 
