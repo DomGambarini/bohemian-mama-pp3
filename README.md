@@ -269,6 +269,37 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to valid
 
 ![python linter](documentation/testing-images/app.py.python-linter.png)
 
+### Devices and Browser Testing
+
+The site was checked across three different web browsers using macOS Big Sur version 11.7.6.
+
+#### Browsers
+
+- Safari 16.4.1
+- Chrome 120.0.6099.199
+- Firefox 122.0
+
+#### Devices
+
+- iPhone SE
+- iPhone XR
+- iPhone S2 Pro
+- iPhone SE14 Pro Max
+- Pixel 7
+- Samsung Galaxy S8+
+- Samsung Galaxy S20 Ultra
+- Ipad Mini
+- Ipad Pro
+- Ipad Air
+- Surface Pro 7
+- Surface Duo
+- Galaxy Fold
+- Samsung Galaxy A51/71
+- Nest Hub Max
+- Nest Hub
+- iPhone 4
+- iPhone 6/7/8
+
 ## Bugs Encounted
 
 1. The selectfield input does not have a required attribute and therefore when leaving the field blank it would not display the usual red line. 
