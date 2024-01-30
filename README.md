@@ -50,32 +50,40 @@ Implement feedback mechanisms, such as confirmation messages and notifications, 
 
 ## User Stories
 
-### As a New Visitor 
-- I want to easily navigate the website to find seasonal recipes that interest me. 
+### As a New Visitor
+
+- I want to easily navigate the website to find seasonal recipes that interest me.
 - I want to learn more about the blog owner and her approach to cooking with seasonal produce.
 
 ### As a Regular User
+
 - I want to create a user profile to edit and delete my recipes and personalize my experience.
 
-### As a Novice Cook 
-- I want clear, step-by-step instructions with images to help me follow the recipes easily. 
+### As a Novice Cook
+
+- I want clear, step-by-step instructions with images to help me follow the recipes easily.
 - I want to find beginner-friendly recipes that require minimal cooking skills.
 
 ### As an Experienced Cook
+
 - I want to contribute my own recipes and share my cooking experiences with the community.
 
 ### As a Mobile User
+
 - I want the website to be mobile-friendly so I can access recipes easily from my phone or tablet.
 
 ### As a Community Member
+
 - I want to leave comments on recipes to share my thoughts or ask questions.
 - I want to participate in user-generated content campaigns or challenges.
 
 ### As a Local Food Advocate
+
 - I want to learn about local farmers, markets, and producers featured in the blog.
 - I want the blog to promote seasonal produce from the UK and specifically from Cornwall.
 
 ### As a Contributor
+
 - I want a straightforward process to submit my own recipes, complete with images and personal anecdotes.
 - I want my contributions to be recognized, whether through a featured section or community spotlight.
 
@@ -135,12 +143,12 @@ If the input fields are filled in without the required letters or numbers an err
 
 ![Error Messge](documentation/website-images/please-match-format-request.png)
 
-If a field is not filled an error message will display. 
+If a field is not filled an error message will display.
 ![About Content homepage](documentation/website-images/please-fill-in-field.png)
 
 ### Sign In Page
 
-The sign in page is similar looking to the register page. It has a register account link below. 
+The sign in page is similar looking to the register page. It has a register account link below.
 ![Sign In Page](documentation/website-images/sign-in.png)
 
 A flash error message is displayed if the incorrect username and / or password is entered.
@@ -169,7 +177,7 @@ The seaonal recipes page displays recipes from all users of the site. Only the u
 
 ### Edit Recipe
 
-If you click the edit link it will bring you to the edit recipe page. From here you can edit any of the input fields displayed or cancel if you wish to exit without making any changes. All required fields and error messages are the same as the other form on the site. 
+If you click the edit link it will bring you to the edit recipe page. From here you can edit any of the input fields displayed or cancel if you wish to exit without making any changes. All required fields and error messages are the same as the other form on the site.
 
 ![Edit Form](documentation/website-images/edit-recipe.png)
 
@@ -179,9 +187,27 @@ If a recipe has been edited correctly it will redirect to the recipes page and a
 
 ### Delete Recipe
 
-You can also delete your own recipies as a user. 
+You can also delete your own recipes as a user.
 
 ![Recipes Page](documentation/website-images/delete-recipe.png)
+
+## Technology
+
+- **Language:** HTML, CSS, Python
+- **Framworks:** Flask, Materialize
+- **Libraries:** jQuery, WTForms
+- **Database:** MongoDB
+- **Google Fonts:** Playfair Display for all content, headings, navigation and forms
+- **Font Awesome:** for the social media icons in the footer and all form icons
+- **Code Anywhere:** used as a cloud code editor.
+- **GitHub:** used as a cloud based code repository.
+- **Heroku:** App deployed to Heroku.
+
+### Color used
+
+- **Nav bar and buttons:** Light shade of green #c5e1a5
+- **Footer:** Shade of pink #ee6e73
+- **Content:** black
 
 ## Testing
 
@@ -239,6 +265,12 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to valid
 
 ![python linter](documentation/testing-images/app.py.python-linter.png)
 
+## Bugs Encounted
+
+1. The selectfield input does not have a required attribute and therefore when leaving the field blank it would not display the usual red line. 
+1. When on the edit page the selectfield, textarea, and url input was not populated with the recipe data.
+1. When clicking to expand a recipe the modal would display the incorrect data from another recipe.  
+
 ## Deployment
 
 ### Setting up GitHub pages
@@ -293,3 +325,36 @@ Forking: refers to creating a personal copy of someone else's repository under y
 2. On the repository's page, click on the "Fork" button located at the top right corner of the page. This action creates a copy of the repository under your GitHub account.
 3. GitHub will redirect you to the forked repository, which is now hosted under your account. You can identify it by the "forked from" message displayed at the top of the repository name.
 4. At this point, you have successfully forked the repository, and you can start working with the code.
+
+#### How to deploy to Heroku with CodeAnywhere
+
+1. Create a new application using the Heroku dashboard.
+1. Go to settings tab, click on 'reveal config vars' and add config vars such as IP (0.0.0.0), PORT (5000), MongoDB Name, MongoDB URI (URL with DB name and password).
+1. Install Heroku via the console using 'npm install -g heroku'.
+1. Log into Heroku via the console using 'heroku login' and follow the on screen instructions to log in.
+1. Create a requirements.txt via the console using 'pip3 freeze > requirements.txt'.
+1. Create a Procfile via the console using 'echo web: python app.py > Procfile'.
+1. Connect GitHub to Heroku via the console using 'heroku git:remote -a bohemian-mama'
+1. Commit all files in your project via the console using 'git add .' and 'git commit -m "Message"'.
+1. Deploy your project to Heroku via the console using 'git push heroku master'.
+
+#### Running the application locally using CodeAnywhere
+
+1. Clone the repository as described above and upload it to CodeAnywhere.
+1. Install the required libraries as specified in the requirements.txt.
+1. Set your environment variables by creating env.py file and adding them there.
+1. Create a .gitignore file in the root directory and include the env.py file to prevent it being pushed to GitHub.
+1. Import the env.py file into the app.py file to access the enivironment variables.
+1. Finally, run the application.
+
+## Acknoldgements
+
+### Credits
+
+- User Authentication: From the Code Institute, Tim Nelson.
+- All images from unsplash.com
+- Understanding how to use and navigate Materialize, Tim Nelson.
+
+### References
+
+- YouTuber Pretty Printed and Codemy was my guide on how to use Flask WTForms.
