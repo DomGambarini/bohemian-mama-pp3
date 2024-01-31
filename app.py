@@ -136,7 +136,9 @@ def add_recipe():
     if "user" not in session:
         return redirect(url_for('signin'))
     form = addRecipe()
+
     if form.validate_on_submit():
+        ingredients = request.form.get("ingredients").split("\n")
         recipe = {
             'image': request.form.get('image'),
             "season_name": request.form.get("season_name"),
@@ -148,6 +150,7 @@ def add_recipe():
             "created_by": session["user"],
             "posted": formatted_date
         }
+
         mongo.db.recipes.insert_one(recipe)
         flash("Your recipe has been uploaded!")
         return redirect(url_for("recipe"))
@@ -205,6 +208,15 @@ def recipe():
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     form = addRecipe(request.form, data=recipe)
+    if recipe:
+        # Split ingredients by newline ("\n")
+        ingredients_list = recipe.get("ingredients", "").split("\n")
+
+        # Render the template with the recipe and ingredients list
+        return render_template("view_recipe.html", recipe=recipe, ingredients=ingredients_list)
+    else:
+        # Handle the case where the recipe doesn't exist
+        return "Recipe not found", 404
     return render_template("view_recipe.html", recipe=recipe)
 
 

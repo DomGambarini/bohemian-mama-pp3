@@ -2,14 +2,14 @@
 {% block title %}View Recipe{% endblock %}
 {% block content %}
 
-<h1 class="center-align">Selected Recipes</h1>
+<h2 class="center-align">{{ recipe.recipe_name }}</h2>
 
 <!-------Recipe Card------->
 
 
 
 <div class="row">
-    <div class="col l2 m6 s12">
+    <div class="col s12 m8 offset-m2">
         <div class="card">
             <div class="card-image">
                 <img src="{{ recipe.image }}" />
@@ -20,7 +20,15 @@
                 <p><strong>Cook / Prep:</strong> {{ recipe.cook_time }}</p>
                 <p><strong>Serves:</strong> {{ recipe.serves }}</p>
                 <p><strong>Created By:</strong> {{ recipe.created_by }}</p>
-                <p><strong>Date Posted:</strong> {{ recipe.posted }}</p>
+                
+                <div>
+                    <p id="view-recipe-ingredients"><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                </div>
+               
+                <div>
+                    <p id="view-recipe-method"><strong>Method:</strong> {{ recipe.method }}</p>
+                </div>
+                
 
             </div>
             

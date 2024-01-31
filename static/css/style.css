@@ -122,3 +122,12 @@ footer {
         height: 100px;
     }
 }
+
+#view-recipe-ingredients {
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
+#view-recipe-method {
+    margin-bottom: 1.5em;
+}
