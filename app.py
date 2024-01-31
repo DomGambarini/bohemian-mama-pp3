@@ -195,10 +195,17 @@ def edit_recipe(recipe_id):
         "edit-recipe.html", form=form, recipe=recipe)
 
 
-@app.route('/recipes', methods=["GET"])
+@app.route('/recipes/', methods=["GET"])
 def recipe():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
+
+
+@app.route('/view_recipe/<recipe_id>', methods=["GET"])
+def view_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    form = addRecipe(request.form, data=recipe)
+    return render_template("view_recipe.html", recipe=recipe)
 
 
 @app.route("/delete_recipe/<recipe_id>")
