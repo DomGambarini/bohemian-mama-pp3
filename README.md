@@ -119,7 +119,7 @@ Implement feedback mechanisms, such as confirmation messages and notifications, 
 
 ## Features
 
-Each page consists of a navigation menu fixed to the top and a footer fixed to the bottom of the screen. 
+Each page consists of a navigation menu fixed to the top and a footer fixed to the bottom of the screen.
 The navigation bar is responsive with the screen size and becomes a hamburger icon with aside menu when the screen size shrinks.
 
 ![Navigation Bar Image](documentation/website-images/navbar.png)
@@ -217,42 +217,42 @@ You can also delete your own recipes as a user.
 
 The manual testing procedure involved examining the functions of individual website features. Chrome DevTools facilitated testing across various screen dimensions.
 
-| Test Feature | Test Action | Expected Result | Test Result |
-|----------|-----------|----------------|------------|
-| Navigation links. | Click all links in navigation menu on each page. | Each link leads to expected page from any page. | PASS |
-| Navigation menu responsiveness | Resize the screen below and above 993px wide. | Navigation menu collapses into a hamburger icon on screens lower than 993px wide. | PASS |
-| Hero section content | Click toggle icons to view each hero image. |  Hero image rotates in a smooth action to display the next image. | PASS |
-| Hero call to action button | Click button. | Should redirect to the registration page | PASS |
-| Registration Page | Enter existing username | Flash message displays | PASS |
-| Registration Page | Enter existing password | Flash message displays | PASS |
-| Registration Page | Enter incorrect number of characters for username | Error message displays | PASS |
-| Registration Page | Enter incorrect number of characters for password | Error message displays | PASS |
-| Registration Page | Enter incorrect type of characters for username | Error message displays | PASS |
-| Registration Page | Enter incorrect type of characters for password | Error message displays | PASS |
-| Registration Page | Click link to Login | Redirect to login page | PASS |
-| Sign in Page | Enter incorrect username | Flash message displays | PASS |
-| Sign In Page | Enter incorrect password | Flash message displays | PASS |
-| Sign In Page | Enter incorrect number of characters for username | Error message displays with required red line visible | PASS |
-| Sign In Page | Enter incorrect number of characters for password | Error message displays with required red line visible | PASS |
-| Sign In Page | Click link to Register Account | Redirect to Register page | PASS |
-| Sign In Page | Enter correct details to sign in | Redirect to Profile page with flash message | PASS |
-| Log Out Link | Click Log Out link | Redirect to Sign In page with flash message | PASS |
-| Footer | Click social media icons | Should redirect to appropiate websites  | PASS |
-| Add Seasonal Recipe Page | Click select field dropdown and click each field | Each field can be selected accordingly | PASS |
-| Add Seasonal Recipe Page | Enter incorrect value with selectfield | Displays an error message with a red line below | FAIL |
-| Add Seasonal Recipe Page | Enter input values incorrectly in each field | Displays an error message with a red line below | PASS |
-| Add Seasonal Recipe Page | Enter data in fields correctly and click submit | Redirect to recipes page with new recipe visiable and flash message | PASS |
-| Recipes Page | Click to open recipe card in full | Modal of full recipe details including ingredients and method instructions | FAIL |
-| Recipes Page | As a session user you can see links to edit and delete your own recipes | Delete and Edit Links Visible | PASS |
-| Recipes Page | Click delete link | Recipe is deleted from the database and recipes page | PASS |
-| Recipes Page | Click edit link | Redirect to the edit recipe form | PASS |
-| Edit Recipe Page | Click edit link | Redirect to the edit recuipe form | PASS |
-| Edit Recipe Page | Form fields should be populated with recipe you have choosen to edit | Form fields have exisiting data filled in accordingly | FAIL |
-| Edit Recipe Page | Click select field dropdown and click each field | Each field can be selected accordingly | PASS |
-| Edit Recipe Page | Enter incorrect value with selectfield | Displays an error message with a red line below | FAIL |
-| Edit Recipe Page | Enter input values incorrectly in each field | Displays an error message with a red line below | PASS |
-| Edit Recipe Page | Click cancel button | Redirect to recipes page | PASS |
-| Edit Page | Enter data in fields correctly and click submit | Redirect to recipes page with the updated recipe visiable and flash message | PASS |
+| Test Feature                   | Test Action                                                             | Expected Result                                                                   | Test Result |
+| ------------------------------ | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------- |
+| Navigation links.              | Click all links in navigation menu on each page.                        | Each link leads to expected page from any page.                                   | PASS        |
+| Navigation menu responsiveness | Resize the screen below and above 993px wide.                           | Navigation menu collapses into a hamburger icon on screens lower than 993px wide. | PASS        |
+| Hero section content           | Click toggle icons to view each hero image.                             | Hero image rotates in a smooth action to display the next image.                  | PASS        |
+| Hero call to action button     | Click button.                                                           | Should redirect to the registration page                                          | PASS        |
+| Registration Page              | Enter existing username                                                 | Flash message displays                                                            | PASS        |
+| Registration Page              | Enter existing password                                                 | Flash message displays                                                            | PASS        |
+| Registration Page              | Enter incorrect number of characters for username                       | Error message displays                                                            | PASS        |
+| Registration Page              | Enter incorrect number of characters for password                       | Error message displays                                                            | PASS        |
+| Registration Page              | Enter incorrect type of characters for username                         | Error message displays                                                            | PASS        |
+| Registration Page              | Enter incorrect type of characters for password                         | Error message displays                                                            | PASS        |
+| Registration Page              | Click link to Login                                                     | Redirect to login page                                                            | PASS        |
+| Sign in Page                   | Enter incorrect username                                                | Flash message displays                                                            | PASS        |
+| Sign In Page                   | Enter incorrect password                                                | Flash message displays                                                            | PASS        |
+| Sign In Page                   | Enter incorrect number of characters for username                       | Error message displays with required red line visible                             | PASS        |
+| Sign In Page                   | Enter incorrect number of characters for password                       | Error message displays with required red line visible                             | PASS        |
+| Sign In Page                   | Click link to Register Account                                          | Redirect to Register page                                                         | PASS        |
+| Sign In Page                   | Enter correct details to sign in                                        | Redirect to Profile page with flash message                                       | PASS        |
+| Log Out Link                   | Click Log Out link                                                      | Redirect to Sign In page with flash message                                       | PASS        |
+| Footer                         | Click social media icons                                                | Should redirect to appropiate websites                                            | PASS        |
+| Add Seasonal Recipe Page       | Click select field dropdown and click each field                        | Each field can be selected accordingly                                            | PASS        |
+| Add Seasonal Recipe Page       | Enter incorrect value with selectfield                                  | Displays an error message with a red line below                                   | FAIL        |
+| Add Seasonal Recipe Page       | Enter input values incorrectly in each field                            | Displays an error message with a red line below                                   | PASS        |
+| Add Seasonal Recipe Page       | Enter data in fields correctly and click submit                         | Redirect to recipes page with new recipe visiable and flash message               | PASS        |
+| Recipes Page                   | Click to open recipe card in full                                       | Modal of full recipe details including ingredients and method instructions        | FAIL        |
+| Recipes Page                   | As a session user you can see links to edit and delete your own recipes | Delete and Edit Links Visible                                                     | PASS        |
+| Recipes Page                   | Click delete link                                                       | Recipe is deleted from the database and recipes page                              | PASS        |
+| Recipes Page                   | Click edit link                                                         | Redirect to the edit recipe form                                                  | PASS        |
+| Edit Recipe Page               | Click edit link                                                         | Redirect to the edit recuipe form                                                 | PASS        |
+| Edit Recipe Page               | Form fields should be populated with recipe you have choosen to edit    | Form fields have exisiting data filled in accordingly                             | FAIL        |
+| Edit Recipe Page               | Click select field dropdown and click each field                        | Each field can be selected accordingly                                            | PASS        |
+| Edit Recipe Page               | Enter incorrect value with selectfield                                  | Displays an error message with a red line below                                   | FAIL        |
+| Edit Recipe Page               | Enter input values incorrectly in each field                            | Displays an error message with a red line below                                   | PASS        |
+| Edit Recipe Page               | Click cancel button                                                     | Redirect to recipes page                                                          | PASS        |
+| Edit Page                      | Enter data in fields correctly and click submit                         | Redirect to recipes page with the updated recipe visiable and flash message       | PASS        |
 
 ### W3C HTML Validator Testing
 
@@ -302,9 +302,9 @@ The site was checked across three different web browsers using macOS Big Sur ver
 
 ## Bugs Encounted
 
-1. The selectfield input does not have a required attribute and therefore when leaving the field blank it would not display the usual red line. 
+1. The selectfield input does not have a required attribute and therefore when leaving the field blank it would not display the usual red line.
 1. When on the edit page the selectfield, textarea, and url input was not populated with the recipe data.
-1. When clicking to expand a recipe the modal would display the incorrect data from another recipe.  
+1. When clicking to expand a recipe the modal would display the incorrect data from another recipe.
 
 ## Deployment
 
