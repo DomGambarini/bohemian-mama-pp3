@@ -208,15 +208,6 @@ def recipe():
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     form = addRecipe(request.form, data=recipe)
-    if recipe:
-        # Split ingredients by newline ("\n")
-        ingredients_list = recipe.get("ingredients", "").split("\n")
-
-        # Render the template with the recipe and ingredients list
-        return render_template("view_recipe.html", recipe=recipe, ingredients=ingredients_list)
-    else:
-        # Handle the case where the recipe doesn't exist
-        return "Recipe not found", 404
     return render_template("view_recipe.html", recipe=recipe)
 
 
