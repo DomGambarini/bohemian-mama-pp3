@@ -32,9 +32,17 @@ formatted_date = current_time.strftime("%d/%m/%Y")
 
 
 class addRecipe(FlaskForm):
-    season_name = SelectField('Select a Season', choices=[(
-        'Winter', 'Winter'), ('Spring', 'Spring'), (
-        'Summer', 'Summer'), ('Autumn', 'Autumn')])
+    season_name = SelectField(
+        u'Select a Season',
+        choices=[
+            ('', 'Choose your option'),
+            ('Winter', 'Winter'),
+            ('Spring', 'Spring'),
+            ('Summer', 'Summer'),
+            ('Autumn', 'Autumn')],
+        validators=[InputRequired()],
+        default=''
+    )
     recipe_name = StringField(
         'Recipe Name', validators=[InputRequired(), Length(min=4, max=40)])
     cook_time = IntegerField(
