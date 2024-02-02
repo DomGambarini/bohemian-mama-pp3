@@ -169,7 +169,7 @@ def add_recipe():
 def edit_recipe(recipe_id):
     if "user" not in session:
         return redirect(url_for('signin'))
-    recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     form = RecipeForm(request.form, data=recipe)
     
     if form.validate_on_submit():
