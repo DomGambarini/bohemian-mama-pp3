@@ -114,6 +114,25 @@ footer {
   margin-top: 40px;
 }
 
+/********** Recipe Page *************/
+
+#view-recipe-ingredients {
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
+#view-recipe-method {
+    margin-bottom: 1.5em;
+}
+
+
+/********** Underline styling *************/
+
+.underline {
+    text-decoration: underline;
+}
+
+
 /********** Media Queries *************/
 
 @media only screen and (max-width: 580px) {
@@ -122,11 +141,3 @@ footer {
   }
 }
 
-#view-recipe-ingredients {
-  margin-bottom: 1.5em;
-  margin-top: 1.5em;
-}
-
-#view-recipe-method {
-  margin-bottom: 1.5em;
-}
