@@ -171,6 +171,7 @@ def edit_recipe(recipe_id):
         return redirect(url_for('signin'))
     recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
     form = RecipeForm(request.form, data=recipe)
+    
     if form.validate_on_submit():
         submit_recipe = {
             'image': request.form.get('image'),
@@ -184,11 +185,13 @@ def edit_recipe(recipe_id):
             "posted": formatted_date
         }
         update_recipe = {"$set": submit_recipe}
-        mongo.db.recipes.update_one({"_id": ObjectId(
-            recipe_id)}, update_recipe)
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, update_recipe)
+        
         seasons = mongo.db.seasons.find().sort("season_name", 1)
-        return redirect(url_for(
-            "recipe", seasons=seasons, recipe_id=recipe_id))
+        return redirect(url_for("recipe", seasons=seasons, recipe_id=recipe_id))
+
+    seasons = mongo.db.seasons.find().sort("season_name", 1)
+    return render_template("edit_recipe.html", form=form, seasons=seasons, recipe=recipe)
 
 
 @app.route('/recipes/', methods=["GET"])
@@ -236,4 +239,4 @@ if __name__ == "__main__":
     app.run(
         host=os.environ.get("I.P", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=False)
+        debug=True)
