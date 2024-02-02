@@ -1,15 +1,9 @@
 import os
-import form.py
+import form
 from flask import (
     Flask, flash, render_template,
     redirect, request,
     session, url_for)
-from flask_wtf import FlaskForm, RecaptchaField
-from wtforms.validators import (
-    InputRequired, Length, NumberRange, URL, DataRequired)
-from wtforms import (
-    StringField, PasswordField, RadioField, IntegerField,
-    SubmitField, SelectField, TextAreaField, DateField, URLField)
 from flask_pymongo import PyMongo
 from datetime import datetime
 from bson.objectid import ObjectId
@@ -174,7 +168,7 @@ def recipe():
 @app.route('/view_recipe/<recipe_id>', methods=["GET"])
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
-    form = FormRecipe(request.form, data=recipe)
+    form = RecipeForm(request.form, data=recipe)
     return render_template("view_recipe.html", recipe=recipe)
 
 
