@@ -186,11 +186,9 @@ def edit_recipe(recipe_id):
         update_recipe = {"$set": submit_recipe}
         mongo.db.recipes.update_one({"_id": ObjectId(
             recipe_id)}, update_recipe)
-        flash("Recipe successfully updated!")
-
-    seasons = mongo.db.seasons.find().sort("season_name", 1)
-    return render_template(
-        "edit-recipe.html", form=form, recipe=recipe)
+        seasons = mongo.db.seasons.find().sort("season_name", 1)
+        return redirect(url_for(
+            "recipe", seasons=seasons, recipe_id=recipe_id))
 
 
 @app.route('/recipes/', methods=["GET"])
