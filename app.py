@@ -168,7 +168,7 @@ def add_recipe():
 @app.route("/test/<recipe_id>", methods=["GET", "POST"])
 def test(recipe_id):
 
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
     form = addRecipe(request.form, data=recipe)
     print(recipe)
     return render_template('edit-recipe copy.html', form=form, recipe=recipe)
@@ -178,7 +178,7 @@ def test(recipe_id):
 def edit_recipe(recipe_id):
     if "user" not in session:
         return redirect(url_for('signin'))
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
     form = addRecipe(request.form, data=recipe)
     if form.validate_on_submit():
         submit_recipe = {
@@ -212,7 +212,7 @@ def recipe():
 
 @app.route('/view_recipe/<recipe_id>', methods=["GET"])
 def view_recipe(recipe_id):
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
     form = addRecipe(request.form, data=recipe)
     return render_template("view_recipe.html", recipe=recipe)
 
@@ -249,4 +249,4 @@ if __name__ == "__main__":
     app.run(
         host=os.environ.get("I.P", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=True)
+        debug=False)
