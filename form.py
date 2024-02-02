@@ -1,7 +1,7 @@
 import app.py
 
 
-class addRecipe(FlaskForm):
+class RecipeForm(FlaskForm):
     season_name = SelectField(
         u'Select a Season',
         choices=[

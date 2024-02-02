@@ -113,7 +113,7 @@ def logout():
 def add_recipe():
     if "user" not in session:
         return redirect(url_for('signin'))
-    form = addRecipe()
+    form = RecipeForm()
 
     if form.validate_on_submit():
         ingredients = request.form.get("ingredients").split("\n")
@@ -142,7 +142,7 @@ def edit_recipe(recipe_id):
     if "user" not in session:
         return redirect(url_for('signin'))
     recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
-    form = addRecipe(request.form, data=recipe)
+    form = RecipeForm(request.form, data=recipe)
     if form.validate_on_submit():
         submit_recipe = {
             'image': request.form.get('image'),
@@ -174,14 +174,14 @@ def recipe():
 @app.route('/view_recipe/<recipe_id>', methods=["GET"])
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
-    form = addRecipe(request.form, data=recipe)
+    form = FormRecipe(request.form, data=recipe)
     return render_template("view_recipe.html", recipe=recipe)
 
 
 @app.route('/delete_recipe/<recipe_id>', methods=["GET"])
 def delete_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
-    form = addRecipe(request.form, data=recipe)
+    form = RecipeForm(request.form, data=recipe)
     return render_template("delete_recipe.html", recipe=recipe)
 
 
