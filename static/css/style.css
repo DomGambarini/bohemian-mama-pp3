@@ -29,23 +29,57 @@ ul:not(.browser-default) {
 /************* Hero Image **************/
 
 #hero-image-1 {
-  height: 800px;
+    height: 800px;
+    width: 100%;
+    background: url("../images/fish.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+#image-2 {
+  height: 400px;
   width: 100%;
   background: url("../images/cornish-home.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-
-.card .card-image img {
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
-.carousel {
-  height: 800px;
+#image-3 {
+  height: 400px;
+  width: 100%;
+  background: url("../images/mushrooms.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+#image-4 {
+  height: 400px;
+  width: 100%;
+  background: url("../images/vegetables.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  
+}
+
+.card .card-image img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 /************* Footer **************/
@@ -112,3 +146,12 @@ footer {
   }
 }
 
+.image-container {
+    flex-wrap: wrap;
+    display: flex;
+    margin-top: 30px;
+}
+
+.btn-large {
+    margin: 5px;
+}

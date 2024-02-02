@@ -77,22 +77,16 @@
         </div>
 
 
-        <!-------Submit------->
-        <div class="row">
-            <div class="col s12 center-align">
-                <button class="btn-large light-green waves-effect waves-light text-shadow" type="submit">
-                    Edit Recipe
-                </button>
-            </div>
-        </div>
-        <!-------Cancel------->
-        <div class="row">
-            <div class="col s12 center-align">
-                <a href="{{ url_for('recipe') }}" class="btn-large light-red waves-effect waves-light text-shadow"
-                    type="submit">
-                    Cancel
-                </a>
-            </div>
+      
+      
+
+        <div class="card-action center-align">
+            <button class="btn-large light-red waves-effect waves-light text-shadow" type="submit">
+                Edit Recipe
+            </button>
+            <button href="{{ url_for('recipe') }}" class="btn-large light-red waves-effect waves-light text-shadow" type="submit">
+                Cancel
+            </btton>
         </div>
 
     </form>

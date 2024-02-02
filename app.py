@@ -119,8 +119,6 @@ def signin():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    if "user" not in session:
-        return redirect(url_for('signin'))
     # grab the session user's username from db
     username = mongo.db.bm_users.find_one(
         {"username": session["user"]})["username"]
@@ -219,8 +217,15 @@ def view_recipe(recipe_id):
     return render_template("view_recipe.html", recipe=recipe)
 
 
-@app.route("/delete_recipe/<recipe_id>")
+@app.route('/delete_recipe/<recipe_id>', methods=["GET"])
 def delete_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    form = addRecipe(request.form, data=recipe)
+    return render_template("delete_recipe.html", recipe=recipe)
+
+
+@app.route("/confirm_delete_recipe/<recipe_id>")
+def confirm_delete_recipe(recipe_id):
     if "user" not in session:
         return redirect(url_for('signin'))
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
