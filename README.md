@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to Bohemian Mama, a hub for seasonal recipes inspired by ethical and local living in Cornwall. Join our community of food enthusiasts, farmers, and foragers to explore vibrant dishes rooted in mindful choices. Register to access the full website experience, including the ability to share, create, edit, and delete recipes.
+Welcome to Bohemian Mama, a hub for seasonal recipes inspired by ethical and local living in Cornwall. Join our community of food enthusiasts, farmers, and foragers to explore vibrant dishes rooted in mindful choices. Register to access the full website experience, including the ability to share, create, edit, and delete recipes. [View the site here.]()
 
 ![Mock Up](documentation/website-images/mock-up.png)
 
@@ -34,7 +34,7 @@ Welcome to Bohemian Mama, a hub for seasonal recipes inspired by ethical and loc
 - Access to seasonal recipes.
 - Community engagement, encouraging users to share their thoughts, experiences and variations of recipes.
 - Learning and skill development through recipe instructions.
-- An opportunity to upload and share user’s recipes and gain recognition.
+- An opportunity to upload and share users recipes and gain recognition.
 
 ## 5 Planes of UX
 
@@ -88,9 +88,9 @@ Optimize the blog's design for various devices, especially mobile devices, to ac
 - I want a straightforward process to submit my own recipes, complete with images and personal anecdotes.
 - I want my contributions to be recognized, whether through a featured section or community spotlight.
 
-## Wireframes
+### Wireframes
 
-#### Homepage
+#### Homepage Wireframes
 
 ![Homepage](documentation/wireframes/bm-homepage-wf.png)
 
@@ -275,6 +275,66 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to valid
 
 ![python linter](documentation/testing-images/app.py.python-linter.png)
 
+### Lighthouse Reports Desktop
+
+#### Add Recipe Form Desktop
+
+![Add Recipe Form](documentation/testing-images/lh-add-recipe-desktop.png)
+
+#### Edit Recipe Form Desktop
+
+![Edit Recipe Form](documentation/testing-images/lh-edit-recipe-desktop.png)
+
+#### Index / Homepage Desktop
+
+![Index / Homepage](documentation/testing-images/lh-homepage-desktop.png)
+
+#### Profile Desktop
+
+![Profile](documentation/testing-images/lh-profile-desktop.png)
+
+#### Recipe Page Desktop
+
+![Recipes page](documentation/testing-images/lh-recipes-page-desktop.png)
+
+#### View Recipe Desktop
+
+![Delete Recipe](documentation/testing-images/lh-view-recipe-page-desktop.png)
+
+#### Delete Recipe Desktop
+
+![View Recipe](documentation/testing-images/lh-delete-recipe-desktop.png)
+
+### Lighthouse Reports Mobile
+
+#### Add Recipe Form Mobile
+
+![Add Recipe Form](documentation/testing-images/lh-add-recipe-mobile.png)
+
+#### Edit Recipe Form Mobile
+
+![Edit Recipe Form](documentation/testing-images/lh-edit-recipe-mobile.png)
+
+#### Index / Homepage Mobile
+
+![Index / Homepage](documentation/testing-images/lh-homepage-mobile.png)
+
+#### Profile Mobile
+
+![Profile](documentation/testing-images/lh-profile-mobile.png)
+
+#### Recipe Page Mobile
+
+![Recipes page](documentation/testing-images/lh-recipes-page-mobile.png)
+
+#### View Recipe Mobile
+
+![View Recipe](documentation/testing-images/lh-view-recipe-mobile-page.png)
+
+#### Delete Recipe Mobile
+
+![Delete Recipe](documentation/testing-images/lh-delete-recipe-mobile.png)
+
 ### Devices and Browser Testing
 
 The site was checked across three different web browsers using macOS Big Sur version 11.7.6.
@@ -308,9 +368,11 @@ The site was checked across three different web browsers using macOS Big Sur ver
 
 ## Bugs Encounted
 
-1. The selectfield input does not have a required attribute and therefore when leaving the field blank it would not display the usual red line.
-1. When on the edit page the selectfield, textarea, and url input was not populated with the recipe data.
-1. When clicking to expand a recipe the modal would display the incorrect data from another recipe.
+1. The selectfield input does not have a required attribute and therefore when leaving the field blank it would not display an error message.
+2. The edit recipe page was not populating the selectfield, textarea, and url inputs. This was beacuse it was not binding the form to an object. To fix this, I passed the obj attribute to the constructor.
+3. When clicking to expand a recipe the modal would display the incorrect data from another recipe. I decided that it was better to create a new view recipe page and display the recipe in this format.
+4. Trouble with edit recipe button. When it was clicked it would return to the same page with no changes in data. This was fixed by converting the href link to a button tag. You can only submit a form with a button not a href.
+5. The three images below the About section on the homepage displayed the images but displayed a broken link icon in the corner. I had to change the img tag to a div tag as URL.
 
 ## Deployment
 
@@ -350,7 +412,7 @@ Cloning: code will be linked to your repo and any pushes you make will go to the
 
 #### Here is how to clone code
 
-1. On GitHub.com, navigate to the main page of the repository. You can find that [here](#######################)
+1. On GitHub.com, navigate to the main page of the repository. You can find that [here](https://github.com/DomGambarini/bohemian-mama-pp3)
 2. Above the list of files, click <> **Code**.
 3. Copy the URL for the repository.
 4. In a separate tab, open Code Anywhere
@@ -362,7 +424,7 @@ Forking: refers to creating a personal copy of someone else's repository under y
 
 #### Here is how to fork code
 
-1. Log in to your GitHub account and navigate to the repository you want to fork. You can find that [here](https://github.com/DomGambarini/first-milestone-project)
+1. Log in to your GitHub account and navigate to the repository you want to fork. You can find that [here](https://github.com/DomGambarini/bohemian-mama-pp3)
 2. On the repository's page, click on the "Fork" button located at the top right corner of the page. This action creates a copy of the repository under your GitHub account.
 3. GitHub will redirect you to the forked repository, which is now hosted under your account. You can identify it by the "forked from" message displayed at the top of the repository name.
 4. At this point, you have successfully forked the repository, and you can start working with the code.
@@ -399,3 +461,4 @@ Forking: refers to creating a personal copy of someone else's repository under y
 ### References
 
 - YouTuber Pretty Printed and Codemy was my guide on how to use Flask WTForms.
+- Brian Macharia for helping and guding me through this project.
