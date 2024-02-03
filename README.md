@@ -329,7 +329,7 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to valid
 
 #### View Recipe Mobile
 
-![View Recipe](documentation/testing-images/lh-view-recipe-mobile-page.png)
+![View Recipe](documentation/testing-images/lh-view-recipe-mobile.png)
 
 #### Delete Recipe Mobile
 
