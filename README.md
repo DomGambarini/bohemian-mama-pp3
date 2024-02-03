@@ -335,6 +335,10 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to valid
 
 ![Delete Recipe](documentation/testing-images/lh-delete-recipe-mobile.png)
 
+### Contrast Checker
+
+![Delete Recipe](documentation/testing-images/contrast-checker.png)
+
 ### Devices and Browser Testing
 
 The site was checked across three different web browsers using macOS Big Sur version 11.7.6.
