@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to Bohemian Mama, a hub for seasonal recipes inspired by ethical and local living in Cornwall. Join our community of food enthusiasts, farmers, and foragers to explore vibrant dishes rooted in mindful choices. Register to access the full website experience, including the ability to share, create, edit, and delete recipes. [View the site here.]()
+Welcome to Bohemian Mama, a hub for seasonal recipes inspired by ethical and local living in Cornwall. Join our community of food enthusiasts, farmers, and foragers to explore vibrant dishes rooted in mindful choices. Register to access the full website experience, including the ability to share, create, edit, and delete recipes. [View the site here.](https://bohemian-mama-project-f5e3a7688a41.herokuapp.com/)
 
 ![Mock Up](documentation/website-images/mock-up.png)
 
