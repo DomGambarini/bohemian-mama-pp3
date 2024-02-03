@@ -34,23 +34,20 @@ Welcome to Bohemian Mama, a hub for seasonal recipes inspired by ethical and loc
 - Access to seasonal recipes.
 - Community engagement, encouraging users to share their thoughts, experiences and variations of recipes.
 - Learning and skill development through recipe instructions.
-- Establish an obvious place to leave feedback.
-- Highlight eco-friendly and ethical considerations.
 - An opportunity to upload and share user’s recipes and gain recognition.
 
 ## 5 Planes of UX
 
 **Strategy:** Identify and create detailed user personas based on your target audience, taking into consideration factors like cooking expertise and interest in seasonal, local ingredients. Create a content that aligns with user interests. Plan the distribution of seasonal recipes, cooking tips, and user-generated content to keep the audience engaged.
 
-**Scope:** Design features that enhance the user experience, such as a user-friendly recipe search, develop a mobile friendly website, and an easy to use comment system for users. Also, create a way for users to submit, share, and explore each other's recipes, creating a sense of community and collaboration.
+**Scope:** Design features that enhance the user experience, such as a user-friendly a mobile friendly website, and an easy to use comment system for users. Also, create a way for users to submit, share, and explore each other's recipes, creating a sense of community and collaboration.
 
-**Structure:** Design a clear site structure that categorises recipes by season, ingredient. Ensure easy navigation to enhance the overall user experience.
+**Structure:** Design a clear site structure that categorises recipes by season. Ensure easy navigation to enhance the overall user experience.
 Optimize the blog's design for various devices, especially mobile devices, to accommodate users who may access the blog while cooking or on the go.
 
 **Skeleton:** Design a clean and visually appealing interface with a focus on readability, imagery, and ease of use. Incorporate interactive elements like step-by-step recipe guidlines and visually appealing images to enhance the engagement.
 
 **Surface:** Maintain a consistent visual theme, including color schemes and imagery, that reflects the blog's logo and resonates with the target audience.
-Implement feedback mechanisms, such as confirmation messages and notifications, to keep users informed about their actions and interactions on the blog.
 
 ## User Stories
 
@@ -129,17 +126,16 @@ The navigation bar is responsive with the screen size and becomes a hamburger ic
 
 ### Homepage
 
-On the homepage you will see a carousel of hero images that set the tone of the website - local, ethical, home cooking.
-There is also a call to action button to encourage new users to sign up - Join the Community!
-Below this there is an about section which explains the inspiration behind the blog and why new users should join the community.
+On the homepage you will see a hero image that set the tone of the website ang grabs the users attention - local, ethical, home cooking.
+Below this there is an about section which explains the inspiration behind the blog and why new users should join the community along with imagery to inspire the user.
 
-![Image of the homepage](documentation/website-images/fish-homepage-carousel.png)
+![Image of the homepage](documentation/website-images/hero-image.png)
 ![About Content homepage](documentation/website-images/about-homepage.png)
 
 ### Register Page
 
 We have a simple registration page that requires users to enter a username and password.
-For a user to regsietr accordingly the username and password must be between 5 and 15 characters containing only letters (upper or lower case) and/or numbers. There is also a link below for those that have already registered.
+For a user to register accordingly the username and password must be between 5 and 15 characters containing only letters (upper or lower case) and/or numbers. There is also a link below for those that are members of the site to Log in instead.
 
 ![Register Page](documentation/website-images/register.png)
 
@@ -158,28 +154,34 @@ The sign in page is similar looking to the register page. It has a register acco
 A flash error message is displayed if the incorrect username and / or password is entered.
 ![Flash Sign In Error message](documentation/website-images/flash-incorrect-username-password.png)
 
-If the user does not enter the correct number of characters similar to the register page it will display the same input field and format messages.
+If the user does not enter the correct number of characters similar to the register page it will display the same error messages - "Please match the format requested" or "Please fill in the field".
 
 ### Profile Page
 
-Once logged in it will direct you to the profile page with flash message above.
+Once logged in it will direct you to the profile page with a flash message above.
 ![Sign In Page](documentation/website-images/profile.png)
 
-### Add Seasonal Recipe Page
+### Add Your Own Seasonal Recipe Page
 
-Once logged in you can add a seasonal recipe. The form consists of a selectfield input to select a season the recipe represents. Like all the forms on the site it will display a required error which is highlighted with a red line if the input field requirements are not met.
+Once logged in you can 'Add Your Own Seasonal Recipe'. The form consists of a selectfield input to select a season the recipe represents. Like all the forms on the site it will display a required error which is highlighted with a red line if the input field requirements are not met.
 
 ![Add a Seasonal Recipe Page](documentation/website-images/add-recipe-form.png)
 ![Select Field](documentation/website-images/selectfield.png)
 ![Required Error Message](documentation/website-images/required-error-message.png)
 
-### Recipes
+### The Seasonal Recipes Page
 
-The seaonal recipes page displays recipes from all users of the site. Only the user in session can edit or delete their own recipe. Once an a recipe has been created from the Add Seasonal Recipes page it will direct you to the recipes page with a flash message.
+The 'Seaonal Recipes' page displays recipes from all users of the site. Only the user in session can access the 'edit' or 'delete' links as shown on each recipe card. All users have access to 'view recipe' link. Once a recipe has been created from 'Add Your Own Seasonal Recipe' page it will direct you to the 'Seasonal Recipes' page with a flash message - 'Your recipe has been uploaded!'
 
 ![Recipes Page](documentation/website-images/recipes.png)
 
-### Edit Recipe
+### View Recipe Page
+
+If you click the 'View Recipe' link as shown above on the recipe card it will bring you a full size recipe page with further instructions and method. There's a 'Return To All Recipes' link at the bottom of the card which directs the user back to 'Seasonal Recipes'
+
+![Recipes Page](documentation/website-images/view-recipe-page.png)
+
+### The Edit Recipe Page
 
 If you click the edit link it will bring you to the edit recipe page. From here you can edit any of the input fields displayed or cancel if you wish to exit without making any changes. All required fields and error messages are the same as the other form on the site.
 
@@ -191,8 +193,9 @@ If a recipe has been edited correctly it will redirect to the recipes page and a
 
 ### Delete Recipe
 
-You can also delete your own recipes as a user.
+You can also delete your own recipe as a user. If you click the link 'Delete' it will direct you to the 'Delete Recipe?' page. By clicking Delete it will remove it from the database and 'Seasonal Recipes' page. Both the cancel and delete button will direct you to the 'Seasonal Recipe' page.  
 
+![Recipes Page](documentation/website-images/delete-recipe-page.png)
 ![Recipes Page](documentation/website-images/delete-recipe.png)
 
 ## Technology
@@ -209,7 +212,8 @@ You can also delete your own recipes as a user.
 
 ### Color used
 
-- **Nav bar and buttons:** Light shade of green #c5e1a5
+- **Nav bar:** blue-grey darken-2 from Materialize
+- **Buttons:** Green #8BC34A and Teal #26A69A
 - **Footer:** Shade of pink #ee6e73
 - **Content:** black
 
@@ -221,17 +225,17 @@ The manual testing procedure involved examining the functions of individual webs
 | ------------------------------ | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------- |
 | Navigation links.              | Click all links in navigation menu on each page.                        | Each link leads to expected page from any page.                                   | PASS        |
 | Navigation menu responsiveness | Resize the screen below and above 993px wide.                           | Navigation menu collapses into a hamburger icon on screens lower than 993px wide. | PASS        |
-| Hero section content           | Click toggle icons to view each hero image.                             | Hero image rotates in a smooth action to display the next image.                  | PASS        |
-| Hero call to action button     | Click button.                                                           | Should redirect to the registration page                                          | PASS        |
-| Registration Page              | Enter existing username                                                 | Flash message displays                                                            | PASS        |
-| Registration Page              | Enter existing password                                                 | Flash message displays                                                            | PASS        |
+| Homepage about content         | Resize the screen below and above 993px wide.                           | About content enlarges and retracts smoothly and accordingly to screen size       | PASS        |
+| Homepage three images          | Resize the screen below and above 993px                                 | Images stack and align with each other acording to screen size.                   | PASS        |
+| Registration Page              | Enter existing username                                                 | Flash error message displays "Username / password already exists"                 | PASS        |
+| Registration Page              | Enter existing password                                                 | Flash error message displays "Username / password already exists"                 | PASS        |
 | Registration Page              | Enter incorrect number of characters for username                       | Error message displays                                                            | PASS        |
 | Registration Page              | Enter incorrect number of characters for password                       | Error message displays                                                            | PASS        |
 | Registration Page              | Enter incorrect type of characters for username                         | Error message displays                                                            | PASS        |
 | Registration Page              | Enter incorrect type of characters for password                         | Error message displays                                                            | PASS        |
-| Registration Page              | Click link to Login                                                     | Redirect to login page                                                            | PASS        |
-| Sign in Page                   | Enter incorrect username                                                | Flash message displays                                                            | PASS        |
-| Sign In Page                   | Enter incorrect password                                                | Flash message displays                                                            | PASS        |
+| Registration Page              | Register new user and Click link to Login                               | Redirect to login page with new user on database                                  | PASS        |
+| Sign in Page                   | Enter incorrect username                                                | Flash error message displays                                                      | PASS        |
+| Sign In Page                   | Enter incorrect password                                                | Flash error message displays                                                      | PASS        |
 | Sign In Page                   | Enter incorrect number of characters for username                       | Error message displays with required red line visible                             | PASS        |
 | Sign In Page                   | Enter incorrect number of characters for password                       | Error message displays with required red line visible                             | PASS        |
 | Sign In Page                   | Click link to Register Account                                          | Redirect to Register page                                                         | PASS        |
@@ -239,20 +243,22 @@ The manual testing procedure involved examining the functions of individual webs
 | Log Out Link                   | Click Log Out link                                                      | Redirect to Sign In page with flash message                                       | PASS        |
 | Footer                         | Click social media icons                                                | Should redirect to appropiate websites                                            | PASS        |
 | Add Seasonal Recipe Page       | Click select field dropdown and click each field                        | Each field can be selected accordingly                                            | PASS        |
-| Add Seasonal Recipe Page       | Enter incorrect value with selectfield                                  | Displays an error message with a red line below                                   | FAIL        |
+| Add Seasonal Recipe Page       | Try to submit form without selecting a selectfield input                | Displays an error message                                                         | PASS        |
 | Add Seasonal Recipe Page       | Enter input values incorrectly in each field                            | Displays an error message with a red line below                                   | PASS        |
-| Add Seasonal Recipe Page       | Enter data in fields correctly and click submit                         | Redirect to recipes page with new recipe visiable and flash message               | PASS        |
-| Recipes Page                   | Click to open recipe card in full                                       | Modal of full recipe details including ingredients and method instructions        | FAIL        |
+| Add Seasonal Recipe Page       | Enter data in fields correctly and click submit                         | Redirect to recipes page with new recipe visiable and flash message. Databse updated | PASS        |
+| Recipes Page                   | Click to open recipe card in full                                       | Redirects to View Recipe Page and the full recipe with instructions and method    | PASS        |
 | Recipes Page                   | As a session user you can see links to edit and delete your own recipes | Delete and Edit Links Visible                                                     | PASS        |
-| Recipes Page                   | Click delete link                                                       | Recipe is deleted from the database and recipes page                              | PASS        |
+| Recipes Page                   | Click delete link                                                       | Redirected to the delete recipe page                                              | PASS        |
 | Recipes Page                   | Click edit link                                                         | Redirect to the edit recipe form                                                  | PASS        |
-| Edit Recipe Page               | Click edit link                                                         | Redirect to the edit recuipe form                                                 | PASS        |
-| Edit Recipe Page               | Form fields should be populated with recipe you have choosen to edit    | Form fields have exisiting data filled in accordingly                             | FAIL        |
+| Edit Recipe Page               | Form fields should be populated with recipe you have choosen to edit    | Form fields have exisiting data filled in accordingly                             | PASS        |
 | Edit Recipe Page               | Click select field dropdown and click each field                        | Each field can be selected accordingly                                            | PASS        |
-| Edit Recipe Page               | Enter incorrect value with selectfield                                  | Displays an error message with a red line below                                   | FAIL        |
+| Edit Recipe Page               | Try to submit form without choosing a selectfield option                | Displays an error message                                                         | PASS        |
 | Edit Recipe Page               | Enter input values incorrectly in each field                            | Displays an error message with a red line below                                   | PASS        |
 | Edit Recipe Page               | Click cancel button                                                     | Redirect to recipes page                                                          | PASS        |
-| Edit Page                      | Enter data in fields correctly and click submit                         | Redirect to recipes page with the updated recipe visiable and flash message       | PASS        |
+| Edit Page                      | Enter data in fields correctly and click submit                         | Redirect to recipes page with the updated recipe visiable and flash message. Database Updated | PASS        |
+| View Recipe Page               | Click the link 'Return To All Recipes'                                  | Redirects to the Seasonal Recipe Page                                             | PASS        |
+| Delete Recipe Page             | Click the cancel button                                                 | Return to Seasonal Recipe Page                                                    | PASS        |
+| Delete Recipe Page             | Click the Delete button                                                 | redirect to seaonal recipe page with flash message and recipe deleted from page and database | PASS |
 
 ### W3C HTML Validator Testing
 
